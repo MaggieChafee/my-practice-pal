@@ -1,0 +1,82 @@
+{
+  "-NjY4ibb5kmp7o3S_Apj": { 
+  "name":"Märta",
+  "category":"Large Ensemble",
+  "musicCompleted":true,
+  "startDate":"7/10/2023",
+  "uid":2,
+  "firebaseKey":"-NjY4ibb5kmp7o3S_Apj"
+},
+"-NjY4ibcW9W-Ad1QIdji":{ 
+  "name":"Adélaïde",
+  "category":"Etude",
+  "musicCompleted":false,
+  "startDate":"11/27/2022",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibcW9W-Ad1QIdji"
+},
+"-NjY4ibcW9W-Ad1QIdjj":{ 
+  "name":"Bérangère",
+  "category":"Chamber",
+  "musicCompleted":false,
+  "startDate":"6/9/2023",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibcW9W-Ad1QIdjj"
+},
+"-NjY4ibdrzlln2ATa7Nq":{ 
+  "name":"Joséphine",
+  "category":"Solo",
+  "musicCompleted":true,
+  "startDate":"12/23/2022",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibdrzlln2ATa7Nq"
+},
+"-NjY4ibdrzlln2ATa7Nr":{
+  "name":"Lóng",
+  "category":"Scale",
+  "musicCompleted":false,
+  "startDate":"2/2/2023",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibdrzlln2ATa7Nr"
+},
+"-NjY4ibeF-iguktiAptk":{
+  "name":"Laurène",
+  "category":"Solo",
+  "musicCompleted":true,
+  "startDate":"9/3/2023",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibeF-iguktiAptk"
+},
+"-NjY4ibeF-iguktiAptl":{
+  "name":"Garçon",
+  "category":"Scale",
+  "musicCompleted":false,
+  "startDate":"6/5/2023",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibeF-iguktiAptl"
+},
+"-NjY4ibfois_XwKusN59":{
+  "name":"Sòng",
+  "category":"Warm-Up",
+  "musicCompleted":false,
+  "startDate":"12/3/2022",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibfois_XwKusN59"
+},
+"-NjY4ibfois_XwKusN5A":{
+  "name":"Loïs",
+  "category":"Chamber",
+  "musicCompleted":true,
+  "startDate":"2/7/2023",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibfois_XwKusN5A"
+},
+"-NjY4ibg8qvhg1neI9vR":{
+  "name":"Annotés",
+  "category":"Scale",
+  "musicCompleted":false,
+  "startDate":"7/7/2023",
+  "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
+  "firebaseKey":"-NjY4ibg8qvhg1neI9vR"
+}
+}
