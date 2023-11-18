@@ -22,10 +22,7 @@ const getNotesByMusicId = (musicId) => new Promise((resolve, reject) => {
     },
   })
     .then((response) => response.json())
-    .then((data) => {
-      const musicNotes = Object.values(data).filter((item) => item.favorite);
-      resolve(musicNotes);
-    })
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 

@@ -1,5 +1,5 @@
-import { getSingleMusic } from './musicData';
-import { getNotesByMusicId, getSingleNote } from './notepadData';
+import { deleteSingleMusic, getSingleMusic } from './musicData';
+import { deleteSingleNote, getNotesByMusicId, getSingleNote } from './notepadData';
 
 const viewNoteDetails = (noteFirebaseKey) => new Promise((resolve, reject) => {
   getSingleNote(noteFirebaseKey)
@@ -18,4 +18,14 @@ const viewMusicDetails = (musicFirebaseKey) => new Promise((resolve, reject) => 
     }).catch((error) => reject(error));
 });
 
-export { viewNoteDetails, viewMusicDetails };
+const deleteMusicAndNotes = (firebaseKey) => new Promise((resolve, reject) => {
+  getNotesByMusicId(firebaseKey).then((notesArray) => {
+    const deleteNotePromises = notesArray.map((note) => deleteSingleNote(note.firebaseKey));
+
+    Promise.all(deleteNotePromises).then(() => {
+      deleteSingleMusic(firebaseKey).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
+export { viewNoteDetails, viewMusicDetails, deleteMusicAndNotes };

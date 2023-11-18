@@ -13,43 +13,21 @@ const getMusicByUid = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const getOpenMusic = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/music.json?orderBy="musicCompleted"&equalTo=false`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
-    })
-    .catch(reject);
-});
-
-const getClosedMusic = () => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/music.json?orderBy="musicCompleted"&equalTo=true`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
-    })
-    .catch(reject);
-});
-
 const getSingleMusic = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/music/${firebaseKey}.json`, {
     method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const deleteSingleMusic = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/music/${firebaseKey}.json`, {
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -84,5 +62,5 @@ const updateMusic = (payload) => new Promise((resolve, reject) => {
 });
 
 export {
-  getClosedMusic, getMusicByUid, getOpenMusic, getSingleMusic, createMusic, updateMusic,
+  getMusicByUid, getSingleMusic, createMusic, updateMusic, deleteSingleMusic,
 };
