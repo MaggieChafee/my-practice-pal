@@ -2,6 +2,7 @@
   "-NjY4ibb5kmp7o3S_Apj": { 
   "name":"Märta",
   "category":"Large Ensemble",
+  "composer":"J.S. Bach",
   "musicCompleted":true,
   "startDate":"7/10/2023",
   "uid":2,
@@ -11,6 +12,7 @@
 "-NjY4ibcW9W-Ad1QIdji":{ 
   "name":"Adélaïde",
   "category":"Etude",
+  "composer":"J.S. Bach",
   "musicCompleted":false,
   "startDate":"11/27/2022",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -20,6 +22,7 @@
 "-NjY4ibcW9W-Ad1QIdjj":{ 
   "name":"Bérangère",
   "category":"Chamber",
+  "composer":"J.S. Bach",
   "musicCompleted":false,
   "startDate":"6/9/2023",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -29,6 +32,7 @@
 "-NjY4ibdrzlln2ATa7Nq":{ 
   "name":"Joséphine",
   "category":"Solo",
+  "composer":"J.S. Bach",
   "musicCompleted":true,
   "startDate":"12/23/2022",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -38,6 +42,7 @@
 "-NjY4ibdrzlln2ATa7Nr":{
   "name":"Lóng",
   "category":"Scale",
+  "composer":"J.S. Bach",
   "musicCompleted":false,
   "startDate":"2/2/2023",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -47,6 +52,7 @@
 "-NjY4ibeF-iguktiAptk":{
   "name":"Laurène",
   "category":"Solo",
+  "composer":"J.S. Bach",
   "musicCompleted":true,
   "startDate":"9/3/2023",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -56,6 +62,7 @@
 "-NjY4ibeF-iguktiAptl":{
   "name":"Garçon",
   "category":"Scale",
+  "composer":"J.S. Bach",
   "musicCompleted":false,
   "startDate":"6/5/2023",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -65,6 +72,7 @@
 "-NjY4ibfois_XwKusN59":{
   "name":"Sòng",
   "category":"Warm-Up",
+  "composer":"J.S. Bach",
   "musicCompleted":false,
   "startDate":"12/3/2022",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -74,6 +82,7 @@
 "-NjY4ibfois_XwKusN5A":{
   "name":"Loïs",
   "category":"Chamber",
+  "composer":"J.S. Bach",
   "musicCompleted":true,
   "startDate":"2/7/2023",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",
@@ -83,6 +92,7 @@
 "-NjY4ibg8qvhg1neI9vR":{
   "name":"Annotés",
   "category":"Scale",
+  "composer":"J.S. Bach",
   "musicCompleted":false,
   "startDate":"7/7/2023",
   "uid":"9JhFSvTvMvQ7pXrW2ZqqpQSmQfm1",

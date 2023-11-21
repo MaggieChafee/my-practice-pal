@@ -9,7 +9,7 @@ const getMusicByUid = (uid) => new Promise((resolve, reject) => {
       'Content-Type': 'application/json',
     },
   }).then((response) => response.json())
-    .then((data) => resolve((data)))
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 
