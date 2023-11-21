@@ -20,13 +20,15 @@ function Home() {
 
   return (
     <>
-      <div>
-        <h1>My Dashboard</h1>
-      </div>
-      <div>
-        {music.map((filteredMusic) => (
-          <MusicCard key={filteredMusic.firebasKey} musicObj={filteredMusic} onUpdate={getFilterdMusic} />
-        ))}
+      <div className="my-dashboard-container">
+        <div className="my-dashboard-header">
+          <h1>My Dashboard</h1>
+        </div>
+        <div className="dashboard-music-cards">
+          {music.map((filteredMusic) => (
+            <MusicCard key={filteredMusic.firebasKey} musicObj={filteredMusic} onUpdate={getFilterdMusic} />
+          ))}
+        </div>
       </div>
     </>
   );
