@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-curly-brace-presence */
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 function MusicCard({ musicObj }) {
   return (
@@ -12,8 +14,12 @@ function MusicCard({ musicObj }) {
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>{musicObj.startDate}</Card.Text>
         <Button href={musicObj.recording}>Reference Recording</Button>
-        <Button variant="primary">Details</Button>
-        <Button variant="primary">Edit</Button>
+        <Link href={`/music/${musicObj.firebaseKey}`} passHref>
+          <Button variant="primary">Details</Button>
+        </Link>
+        <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
+          <Button variant="primary">Edit</Button>
+        </Link>
         <Button variant="primary">Delete</Button>
       </Card.Body>
     </Card>
@@ -28,6 +34,7 @@ MusicCard.propTypes = {
     category: PropTypes.string,
     startDate: PropTypes.string,
     recording: PropTypes.string,
+    firebaseKey: PropTypes.string,
   }).isRequired,
 };
 
