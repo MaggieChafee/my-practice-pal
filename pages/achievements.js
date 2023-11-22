@@ -20,13 +20,15 @@ export default function ViewMyAchievements() {
 
   return (
     <>
-      <div>
-        <h1>My Achievements</h1>
-      </div>
-      <div>
-        {compMusic.map((filteredCompMusic) => (
-          <MusicCard key={filteredCompMusic.firebasKey} musicObj={filteredCompMusic} onUpdate={getClosedFilterdMusic} />
-        ))}
+      <div className="achievements-container">
+        <div>
+          <h1>My Achievements</h1>
+        </div>
+        <div className="cards-container">
+          {compMusic.map((filteredCompMusic) => (
+            <MusicCard key={filteredCompMusic.firebasKey} musicObj={filteredCompMusic} onUpdate={getClosedFilterdMusic} />
+          ))}
+        </div>
       </div>
     </>
   );
