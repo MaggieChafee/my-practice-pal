@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { viewNoteDetails } from '../../api/mergedData';
 
 function ViewNotePadDetails() {
@@ -20,6 +22,9 @@ function ViewNotePadDetails() {
         <h1>
           {noteDetails?.date} {noteDetails?.noteClosed ? 'CHECKMARK' : ''}
         </h1>
+        <Link href={`/notepad/edit/${noteDetails.firebaseKey}`} passHref>
+          <Button variant="primary">Edit</Button>
+        </Link>
         <h4>
           Jot Sheet:
         </h4>

@@ -26,7 +26,11 @@ body {
   padding: 25px;
 }
 
-.dashboard-music-cards {
+.achievements-container {
+  padding: 25px;
+}
+
+.cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

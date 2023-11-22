@@ -24,7 +24,7 @@ function Home() {
         <div className="my-dashboard-header">
           <h1>My Dashboard</h1>
         </div>
-        <div className="dashboard-music-cards">
+        <div className="cards-container">
           {music.map((filteredMusic) => (
             <MusicCard key={filteredMusic.firebasKey} musicObj={filteredMusic} onUpdate={getFilterdMusic} />
           ))}

@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/jsx-curly-brace-presence */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { viewMusicDetails } from '../../api/mergedData';
 import NoteCard from '../../components/cards/noteCard';
 
@@ -17,11 +19,14 @@ function ViewMusicDetails() {
   }, []);
 
   return (
-    <div className="mt-5 d-flex flex-wrap">
+    <div>
       <div className="music-details-header">
         <h1>
           {musicDetails?.name} {musicDetails?.musicCompleted ? 'STAR' : ''}
         </h1>
+        <Link href={`/music/edit/${musicDetails.firebaseKey}`} passHref>
+          <Button variant="primary">Edit</Button>
+        </Link>
         <h4>
           Written by {musicDetails?.composer}
         </h4>
@@ -32,6 +37,11 @@ function ViewMusicDetails() {
           Start Date: {musicDetails?.startDate}
         </h5>
         <Button href={musicDetails.recording}>Reference Recording</Button>
+      </div>
+      <div>
+        <Link href={'../notepad/new'} passHref>
+          <Button variant="primary">Add a Notepad</Button>
+        </Link>
       </div>
       <div className="music-details-notecards">
         {musicDetails.notes?.map((notepad) => (

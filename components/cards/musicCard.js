@@ -14,13 +14,15 @@ function MusicCard({ musicObj }) {
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>{musicObj.startDate}</Card.Text>
         <Button href={musicObj.recording}>Reference Recording</Button>
-        <Link href={`/music/${musicObj.firebaseKey}`} passHref>
-          <Button variant="primary">Details</Button>
-        </Link>
-        <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
-          <Button variant="primary">Edit</Button>
-        </Link>
-        <Button variant="primary">Delete</Button>
+        <div>
+          <Link href={`/music/${musicObj.firebaseKey}`} passHref>
+            <Button variant="primary">Details</Button>
+          </Link>
+          <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
+            <Button variant="primary">Edit</Button>
+          </Link>
+          <Button variant="primary">Delete</Button>
+        </div>
       </Card.Body>
     </Card>
   );
