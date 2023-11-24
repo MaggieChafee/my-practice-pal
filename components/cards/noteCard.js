@@ -9,7 +9,7 @@ function NoteCard({ noteObj }) {
       <Card.Body>
         <Card.Text>{noteObj.noteClosed && <span>CHECK MARK<br /></span>}</Card.Text>
         <Card.Title>Notepad Date: {noteObj.date}</Card.Title>
-        <Link href={`/notepad/${noteObj.firebaseKey}`} passHref>
+        <Link href={`/notepad/details/${noteObj.firebaseKey}`} passHref>
           <Button variant="primary">View</Button>
         </Link>
         <Link href={`/notepad/edit/${noteObj.firebaseKey}`} passHref>
