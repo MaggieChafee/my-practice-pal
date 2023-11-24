@@ -64,7 +64,7 @@ function MusicForm({ musicObj }) {
               <option>Warm-Up</option>
               <option>Scale</option>
               <option>Etude</option>
-              <option>Solo Repertoir</option>
+              <option>Solo Repertoire</option>
               <option>Chamber Ensemble</option>
               <option>Large Ensemble</option>
             </Form.Select>

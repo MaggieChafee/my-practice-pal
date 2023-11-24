@@ -25,6 +25,8 @@ function NoteForm({ noteObj }) {
     ));
   };
 
+  console.warn(router);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,7 +34,7 @@ function NoteForm({ noteObj }) {
     createNote(payload).then(({ name }) => {
       const patchPayload = { firebaseKey: name };
       updateNote(patchPayload).then(() => {
-        router.push('/');
+        router.push(`/music/${firebaseKey}`);
       });
     });
   };
