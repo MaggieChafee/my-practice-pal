@@ -33,7 +33,7 @@ function MusicForm({ musicObj }) {
     e.preventDefault();
 
     if (musicObj.firebaseKey) {
-      updateMusic(musicFormInput).then(() => router.push(`/music/${musicObj.firebaseKey}`));
+      updateMusic(musicFormInput).then(() => router.push('/'));
     } else {
       const payload = { ...musicFormInput, uid: user.uid };
       createMusic(payload).then(({ name }) => {

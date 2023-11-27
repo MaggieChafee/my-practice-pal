@@ -25,18 +25,20 @@ function NoteForm({ noteObj }) {
     ));
   };
 
-  console.warn(router);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const payload = { ...noteFormInput };
-    createNote(payload).then(({ name }) => {
-      const patchPayload = { firebaseKey: name };
-      updateNote(patchPayload).then(() => {
-        router.push(`/music/${firebaseKey}`);
+    if (noteObj.firebaseKey) {
+      updateNote(noteFormInput).then(() => router.push(`/music/${noteObj.musicId}`));
+    } else {
+      const payload = { ...noteFormInput };
+      createNote(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateNote(patchPayload).then(() => {
+          router.push(`/music/${firebaseKey}`);
+        });
       });
-    });
+    }
   };
 
   useEffect(() => {
