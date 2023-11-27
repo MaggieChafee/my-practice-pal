@@ -32,13 +32,17 @@ function MusicForm({ musicObj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const payload = { ...musicFormInput, uid: user.uid };
-    createMusic(payload).then(({ name }) => {
-      const patchPayload = { firebaseKey: name };
-      updateMusic(patchPayload).then(() => {
-        router.push('/');
+    if (musicObj.firebaseKey) {
+      updateMusic(musicFormInput).then(() => router.push('/'));
+    } else {
+      const payload = { ...musicFormInput, uid: user.uid };
+      createMusic(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateMusic(patchPayload).then(() => {
+          router.push('/');
+        });
       });
-    });
+    }
   };
 
   useEffect(() => {
