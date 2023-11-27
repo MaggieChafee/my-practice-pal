@@ -82,7 +82,18 @@ function MusicForm({ musicObj }) {
             <Form.Control type="text" name="startDate" value={musicFormInput.startDate} onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="I've completed the piece!" name="musicCompleted" value={musicFormInput.musicCompleted} onChange={handleChange} />
+            <Form.Check
+              type="checkbox"
+              label="I've completed the piece!"
+              name="musicCompleted"
+              value={musicFormInput.musicCompleted}
+              onChange={(e) => {
+                setMusicFormInput((prevState) => ({
+                  ...prevState,
+                  musicCompleted: e.target.checked,
+                }));
+              }}
+            />
           </Form.Group>
           <Button variant="primary" type="submit">
             {musicObj.firebaseKey ? 'Update' : 'Create'} Music
