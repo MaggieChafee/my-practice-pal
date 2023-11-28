@@ -12,23 +12,33 @@ function MusicCard({ musicObj, onUpdate }) {
     }
   };
 
+  const condition = musicObj.musicCompleted;
+  const result = condition ? 'achieve' : 'dash';
+
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className={result} style={{ width: '20rem' }}>
       <Card.Body>
-        <Card.Text>{musicObj.musicCompleted && <span>STAR<br /></span>}</Card.Text>
-        <Card.Title>{musicObj.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">By {musicObj.composer}</Card.Subtitle>
+        <div className="card-head">
+          <div>
+            <Card.Text>{musicObj.musicCompleted && <span>STAR<br /></span>}</Card.Text>
+          </div>
+          <div className="card-title">
+            <Card.Title>{musicObj.name}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">By {musicObj.composer}</Card.Subtitle>
+          </div>
+        </div>
+        <hr />
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>{musicObj.startDate}</Card.Text>
-        <Button href={musicObj.recording}>Reference Recording</Button>
+        <Button variant="outline" href={musicObj.recording}>Reference Recording</Button>
         <div>
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
-            <Button variant="primary">Details</Button>
+            <Button variant="outline-dark">View</Button>
           </Link>
           <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
-            <Button variant="primary">Edit</Button>
+            <Button variant="outline-dark">Edit</Button>
           </Link>
-          <Button variant="primary" onClick={deleteThisMusic}>Delete</Button>
+          <Button variant="outline-dark" onClick={deleteThisMusic}>Delete</Button>
         </div>
       </Card.Body>
     </Card>

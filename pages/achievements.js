@@ -26,7 +26,7 @@ export default function ViewMyAchievements() {
         </div>
         <div className="cards-container">
           {compMusic.map((filteredCompMusic) => (
-            <MusicCard key={filteredCompMusic.firebasKey} musicObj={filteredCompMusic} onUpdate={getClosedFilterdMusic} />
+            <MusicCard className="achieve-cards" key={filteredCompMusic.firebasKey} musicObj={filteredCompMusic} onUpdate={getClosedFilterdMusic} />
           ))}
         </div>
       </div>

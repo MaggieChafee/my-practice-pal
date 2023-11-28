@@ -40,7 +40,7 @@ function ViewMusicDetails() {
       </div>
       <div>
         <Link href={`../notepad/new/${musicDetails.firebaseKey}`} passHref>
-          <Button variant="primary">Add a Notepad</Button>
+          <Button className="btn-orange" variant="dark">Add a Notepad</Button>
         </Link>
       </div>
       <div className="music-details-notecards">

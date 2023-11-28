@@ -23,17 +23,17 @@ function Home() {
   return (
     <>
       <div className="my-dashboard-container">
-        <div className="my-dashboard-header">
+        <div className="page-container">
           <h1>My Dashboard</h1>
         </div>
-        <div>
+        <div className="page-container">
           <Link passHref href="/music/new">
-            <Button>Add Something New</Button>
+            <Button className="btn-orange" variant="dark">Add Something New</Button>
           </Link>
         </div>
         <div className="cards-container">
           {music.map((filteredMusic) => (
-            <MusicCard key={filteredMusic.firebasKey} musicObj={filteredMusic} onUpdate={getFilterdMusic} />
+            <MusicCard className="dash-cards" key={filteredMusic.firebaseKey} musicObj={filteredMusic} onUpdate={getFilterdMusic} />
           ))}
         </div>
       </div>

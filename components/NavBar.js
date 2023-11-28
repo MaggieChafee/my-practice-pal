@@ -8,26 +8,30 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect className="navbar" data-bs-theme="dark" variant="underline">
       <Container>
-        <Link passHref href="/">
-          <Navbar.Brand>my practice pal</Navbar.Brand>
-        </Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Link passHref href="/">
-              <Nav.Link>My Dashboard</Nav.Link>
-            </Link>
-            <Link passHref href="/achievements">
-              <Nav.Link>My Achievements</Nav.Link>
-            </Link>
-            <Link passHref href="/music/new">
-              <Nav.Link>Add Something New</Nav.Link>
-            </Link>
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
-          </Nav>
-        </Navbar.Collapse>
+        <div>
+          <Link passHref href="/">
+            <Navbar.Brand>my practice pal</Navbar.Brand>
+          </Link>
+        </div>
+        <div>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Link passHref href="/">
+                <Nav.Link>My Dashboard</Nav.Link>
+              </Link>
+              <Link passHref href="/achievements">
+                <Nav.Link>My Achievements</Nav.Link>
+              </Link>
+              <Link passHref href="/music/new">
+                <Nav.Link>Add Something New</Nav.Link>
+              </Link>
+              <Button className="btn-orange" variant="dark" onClick={signOut}>Sign Out</Button>
+            </Nav>
+          </Navbar.Collapse>
+        </div>
       </Container>
     </Navbar>
   );
