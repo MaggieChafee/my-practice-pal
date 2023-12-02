@@ -31,6 +31,7 @@ body {
   border-style: solid;
 }
 
+/* button styling */
 .btn {
   border-radius: 25px;
 }
@@ -43,6 +44,7 @@ body {
   border-width: 2px;
 }
 
+/* page styling */
 .page-container {
   padding: 25px;
 }
@@ -57,10 +59,18 @@ body {
   padding: 25px;
 }
 
+.details-head {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+/* card styling */
 .card-head {
   display: flex;
   flex-direction: row;
   color: #064c72; 
+  gap: 10px;
 }
 
 .dash {

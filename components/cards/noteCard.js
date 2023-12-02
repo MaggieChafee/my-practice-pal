@@ -1,7 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { deleteSingleNote } from '../../api/notepadData';
 
 function NoteCard({ noteObj, onUpdate }) {
@@ -10,7 +13,7 @@ function NoteCard({ noteObj, onUpdate }) {
       deleteSingleNote(noteObj.firebaseKey).then(() => onUpdate());
     }
   };
-
+  const checkmark = <FontAwesomeIcon icon={faCheck} size="2xl" style={{ color: '#ed6335' }} />;
   const condition = noteObj.noteClosed;
   const noteResult = condition ? 'closed' : 'open';
 
@@ -18,8 +21,11 @@ function NoteCard({ noteObj, onUpdate }) {
     <Card className={noteResult} style={{ width: '18rem' }}>
       <Card.Body>
         <div className="card-head">
-          <Card.Text>{noteObj.noteClosed && <span>CHECK MARK<br /></span>}</Card.Text>
-          <Card.Title>Notepad Date: {noteObj.date}</Card.Title>
+          <Card.Text>{noteObj.noteClosed ? checkmark : ''}</Card.Text>
+          <div>
+            <h4>Notepad Date:</h4>
+            <h5>{noteObj.date}</h5>
+          </div>
         </div>
         <div style={{ height: '25px' }} />
         <Link href={`/notepad/details/${noteObj.firebaseKey}`} passHref>

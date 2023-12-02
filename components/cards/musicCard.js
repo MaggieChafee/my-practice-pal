@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-curly-brace-presence */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { deleteMusicAndNotes } from '../../api/mergedData';
 
 function MusicCard({ musicObj, onUpdate }) {
@@ -12,6 +15,7 @@ function MusicCard({ musicObj, onUpdate }) {
     }
   };
 
+  const star = <FontAwesomeIcon icon={faStar} size="2xl" style={{ color: '#f9dd76' }} />;
   const condition = musicObj.musicCompleted;
   const result = condition ? 'achieve' : 'dash';
 
@@ -20,11 +24,11 @@ function MusicCard({ musicObj, onUpdate }) {
       <Card.Body>
         <div className="card-head">
           <div>
-            <Card.Text>{musicObj.musicCompleted && <span>STAR<br /></span>}</Card.Text>
+            <Card.Text>{musicObj.musicCompleted ? star : '' }</Card.Text>
           </div>
           <div className="card-title">
-            <Card.Title>{musicObj.name}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">By {musicObj.composer}</Card.Subtitle>
+            <h4>{musicObj.name}</h4>
+            <h6>By {musicObj.composer}</h6>
           </div>
         </div>
         <hr />

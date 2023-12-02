@@ -19,12 +19,15 @@ function ViewNotePadDetails() {
   return (
     <div className="page-container">
       <div>
-        <h1>
-          {noteDetails?.date} {noteDetails?.noteClosed ? 'CHECKMARK' : ''}
-        </h1>
-        <Link href={`/notepad/edit/${noteDetails.firebaseKey}`} passHref>
-          <Button variant="primary">Edit</Button>
-        </Link>
+        <div className="details-head">
+          <h1>
+            {noteDetails?.date} {noteDetails?.noteClosed ? 'CHECKMARK' : ''}
+          </h1>
+          <Link href={`/notepad/edit/${noteDetails.firebaseKey}`} passHref>
+            <Button variant="primary">Edit</Button>
+          </Link>
+        </div>
+        <hr />
         <h4>
           Jot Sheet:
         </h4>
