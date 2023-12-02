@@ -22,11 +22,11 @@ function Home() {
 
   return (
     <>
-      <div className="my-dashboard-container">
-        <div className="page-container">
+      <div className="page-container">
+        <div>
           <h1>My Dashboard</h1>
         </div>
-        <div className="page-container">
+        <div>
           <Link passHref href="/music/new">
             <Button className="btn-orange" variant="dark">Add Something New</Button>
           </Link>

@@ -17,8 +17,8 @@ function ViewNotePadDetails() {
   }, []);
 
   return (
-    <div className="mt-5 d-flex flex-wrap">
-      <div className="text-white ms-5 details">
+    <div className="page-container">
+      <div>
         <h1>
           {noteDetails?.date} {noteDetails?.noteClosed ? 'CHECKMARK' : ''}
         </h1>

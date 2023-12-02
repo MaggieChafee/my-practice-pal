@@ -43,11 +43,7 @@ body {
   border-width: 2px;
 }
 
-.my-dashboard-container {
-  padding: 25px;
-}
-
-.achievements-container {
+.page-container {
   padding: 25px;
 }
 
@@ -64,15 +60,32 @@ body {
 .card-head {
   display: flex;
   flex-direction: row;
+  color: #064c72; 
 }
+
 .dash {
-  background-color: white;
+  border-color: #064c72;
   border-radius: 25px;
   border-style: solid;
   border-width: 5px;
 }
 
 .achieve {
+  background-color: #026c80;
+  color: white;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.open {
+  border-color: #064c72;
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.closed {
   background-color: #026c80;
   color: white;
   border-radius: 25px;

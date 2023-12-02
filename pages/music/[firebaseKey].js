@@ -19,7 +19,7 @@ function ViewMusicDetails() {
   }, []);
 
   return (
-    <div>
+    <div className="page-container">
       <div className="music-details-header">
         <h1>
           {musicDetails?.name} {musicDetails?.musicCompleted ? 'STAR' : ''}
@@ -43,7 +43,7 @@ function ViewMusicDetails() {
           <Button className="btn-orange" variant="dark">Add a Notepad</Button>
         </Link>
       </div>
-      <div className="music-details-notecards">
+      <div className="cards-container">
         {musicDetails.notes?.map((notepad) => (
           <NoteCard key={notepad.firebaseKey} noteObj={notepad} onUpdate={getMusicDeats} />
         ))}

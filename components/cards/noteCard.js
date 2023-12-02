@@ -11,11 +11,17 @@ function NoteCard({ noteObj, onUpdate }) {
     }
   };
 
+  const condition = noteObj.noteClosed;
+  const noteResult = condition ? 'closed' : 'open';
+
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className={noteResult} style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Text>{noteObj.noteClosed && <span>CHECK MARK<br /></span>}</Card.Text>
-        <Card.Title>Notepad Date: {noteObj.date}</Card.Title>
+        <div className="card-head">
+          <Card.Text>{noteObj.noteClosed && <span>CHECK MARK<br /></span>}</Card.Text>
+          <Card.Title>Notepad Date: {noteObj.date}</Card.Title>
+        </div>
+        <div style={{ height: '25px' }} />
         <Link href={`/notepad/details/${noteObj.firebaseKey}`} passHref>
           <Button variant="primary">View</Button>
         </Link>

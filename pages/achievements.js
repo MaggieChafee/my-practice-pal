@@ -20,7 +20,7 @@ export default function ViewMyAchievements() {
 
   return (
     <>
-      <div className="achievements-container">
+      <div className="page-container">
         <div>
           <h1>My Achievements</h1>
         </div>
