@@ -32,7 +32,7 @@ function ViewMusicDetails() {
             {musicDetails?.name} {musicDetails?.musicCompleted ? star : '' }
           </h1>
           <Link href={`/music/edit/${musicDetails.firebaseKey}`} passHref>
-            <Button variant="primary">Edit</Button>
+            <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
         </div>
         <hr />
@@ -46,7 +46,7 @@ function ViewMusicDetails() {
           <h5>
             Start Date: {musicDetails?.startDate}
           </h5>
-          <Button href={musicDetails.recording}>Reference Recording</Button>
+          <Button className="btn-green" variant="dark" href={musicDetails.recording}>Reference Recording</Button>
         </div>
       </div>
       <div style={{ height: '30px' }} />

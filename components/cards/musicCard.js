@@ -17,16 +17,17 @@ function MusicCard({ musicObj, onUpdate }) {
 
   const star = <FontAwesomeIcon icon={faStar} size="2xl" style={{ color: '#f9dd76' }} />;
   const condition = musicObj.musicCompleted;
-  const result = condition ? 'achieve' : 'dash';
+  const result = condition ? 'completed' : 'not-completed';
+  const headResult = condition ? 'card-head-closed' : 'card-head-open';
 
   return (
     <Card className={result} style={{ width: '20rem' }}>
       <Card.Body>
-        <div className="card-head">
+        <div className={headResult}>
           <div>
             <Card.Text>{musicObj.musicCompleted ? star : '' }</Card.Text>
           </div>
-          <div className="card-title">
+          <div>
             <h4>{musicObj.name}</h4>
             <h6>By {musicObj.composer}</h6>
           </div>
@@ -34,15 +35,16 @@ function MusicCard({ musicObj, onUpdate }) {
         <hr />
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>{musicObj.startDate}</Card.Text>
-        <Button variant="outline" href={musicObj.recording}>Reference Recording</Button>
-        <div>
+        <Card.Link href={musicObj.recording}>Reference Recording</Card.Link>
+        <div style={{ height: '25px' }} />
+        <div className="button-container">
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
-            <Button variant="outline-dark">View</Button>
+            <Button className="btn-orange" variant="dark">View</Button>
           </Link>
           <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
-            <Button variant="outline-dark">Edit</Button>
+            <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
-          <Button variant="outline-dark" onClick={deleteThisMusic}>Delete</Button>
+          <Button className="btn-orange" variant="dark" onClick={deleteThisMusic}>Delete</Button>
         </div>
       </Card.Body>
     </Card>

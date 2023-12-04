@@ -15,7 +15,7 @@ function NoteCard({ noteObj, onUpdate }) {
   };
   const checkmark = <FontAwesomeIcon icon={faCheck} size="2xl" style={{ color: '#ed6335' }} />;
   const condition = noteObj.noteClosed;
-  const noteResult = condition ? 'closed' : 'open';
+  const noteResult = condition ? 'completed' : 'not-completed';
 
   return (
     <Card className={noteResult} style={{ width: '18rem' }}>
@@ -28,13 +28,15 @@ function NoteCard({ noteObj, onUpdate }) {
           </div>
         </div>
         <div style={{ height: '25px' }} />
-        <Link href={`/notepad/details/${noteObj.firebaseKey}`} passHref>
-          <Button variant="primary">View</Button>
-        </Link>
-        <Link href={`/notepad/edit/${noteObj.firebaseKey}`} passHref>
-          <Button variant="primary">Edit</Button>
-        </Link>
-        <Button variant="primary" onClick={deleteThisNote}>Delete</Button>
+        <div className="button-container">
+          <Link href={`/notepad/details/${noteObj.firebaseKey}`} passHref>
+            <Button className="btn-orange" variant="dark">View</Button>
+          </Link>
+          <Link href={`/notepad/edit/${noteObj.firebaseKey}`} passHref>
+            <Button className="btn-orange" variant="dark">Edit</Button>
+          </Link>
+          <Button className="btn-orange" variant="dark" onClick={deleteThisNote}>Delete</Button>
+        </div>
       </Card.Body>
     </Card>
   );
