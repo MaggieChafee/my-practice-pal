@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-curly-brace-presence */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { deleteMusicAndNotes } from '../../api/mergedData';
 
 function MusicCard({ musicObj, onUpdate }) {
@@ -12,23 +15,36 @@ function MusicCard({ musicObj, onUpdate }) {
     }
   };
 
+  const star = <FontAwesomeIcon icon={faStar} size="2xl" style={{ color: '#f9dd76' }} />;
+  const condition = musicObj.musicCompleted;
+  const result = condition ? 'completed' : 'not-completed';
+  const headResult = condition ? 'card-head-closed' : 'card-head-open';
+
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className={result} style={{ width: '20rem' }}>
       <Card.Body>
-        <Card.Text>{musicObj.musicCompleted && <span>STAR<br /></span>}</Card.Text>
-        <Card.Title>{musicObj.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">By {musicObj.composer}</Card.Subtitle>
+        <div className={headResult}>
+          <div>
+            <Card.Text>{musicObj.musicCompleted ? star : '' }</Card.Text>
+          </div>
+          <div>
+            <h4 style={{ fontWeight: 'bold' }}>{musicObj.name}</h4>
+            <h6 style={{ fontWeight: 'bolder', fontStyle: 'italic' }}>By {musicObj.composer}</h6>
+          </div>
+        </div>
+        <hr />
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>{musicObj.startDate}</Card.Text>
-        <Button href={musicObj.recording}>Reference Recording</Button>
-        <div>
+        <Card.Link href={musicObj.recording}>Reference Recording</Card.Link>
+        <div style={{ height: '25px' }} />
+        <div className="button-container">
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
-            <Button variant="primary">Details</Button>
+            <Button className="btn-orange" variant="dark">View</Button>
           </Link>
           <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
-            <Button variant="primary">Edit</Button>
+            <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
-          <Button variant="primary" onClick={deleteThisMusic}>Delete</Button>
+          <Button className="btn-orange" variant="dark" onClick={deleteThisMusic}>Delete</Button>
         </div>
       </Card.Body>
     </Card>

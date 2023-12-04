@@ -79,7 +79,7 @@ function MusicForm({ musicObj }) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Start Date - Change to Date Picker</Form.Label>
-            <Form.Control type="text" name="startDate" value={musicFormInput.startDate} onChange={handleChange} />
+            <Form.Control type="date" name="startDate" value={musicFormInput.startDate} onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
@@ -95,7 +95,7 @@ function MusicForm({ musicObj }) {
               }}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button className="btn-orange" variant="dark" type="submit">
             {musicObj.firebaseKey ? 'Update' : 'Create'} Music
           </Button>
         </Form>

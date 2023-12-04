@@ -12,7 +12,12 @@ function EditMusicDetails() {
     getSingleMusic(firebaseKey).then(setEditMusic);
   }, [firebaseKey]);
   return (
-    <MusicForm musicObj={editMusic} />
+    <>
+      <div className="page-container">
+        <h1>Update Music</h1>
+        <MusicForm musicObj={editMusic} />
+      </div>
+    </>
   );
 }
 

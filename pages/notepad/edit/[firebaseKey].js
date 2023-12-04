@@ -13,7 +13,12 @@ function EditNote() {
   }, [firebaseKey]);
 
   return (
-    <NoteForm noteObj={editNote} />
+    <>
+      <div className="page-container">
+        <h1>Update Notepad</h1>
+        <NoteForm noteObj={editNote} />
+      </div>
+    </>
   );
 }
 

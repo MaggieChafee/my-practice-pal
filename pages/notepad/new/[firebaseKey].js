@@ -4,9 +4,11 @@ import NoteForm from '../../../components/forms/noteForm';
 export default function AddNotepad() {
   return (
     <>
-      <h1>Add a Notepad</h1>
-      <div>
-        <NoteForm />
+      <div className="page-container">
+        <h1>Add a Notepad</h1>
+        <div>
+          <NoteForm />
+        </div>
       </div>
     </>
   );
