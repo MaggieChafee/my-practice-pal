@@ -23,8 +23,8 @@ function NoteCard({ noteObj, onUpdate }) {
         <div className="card-head">
           <Card.Text>{noteObj.noteClosed ? checkmark : ''}</Card.Text>
           <div>
-            <h4>Notepad Date:</h4>
-            <h5>{noteObj.date}</h5>
+            <h4 style={{ fontWeight: 'bold' }}>Notepad Date:</h4>
+            <h5 style={{ fontWeight: 'bolder' }}>{noteObj.date}</h5>
           </div>
         </div>
         <div style={{ height: '25px' }} />

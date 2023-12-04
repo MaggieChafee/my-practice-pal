@@ -28,8 +28,8 @@ function MusicCard({ musicObj, onUpdate }) {
             <Card.Text>{musicObj.musicCompleted ? star : '' }</Card.Text>
           </div>
           <div>
-            <h4>{musicObj.name}</h4>
-            <h6>By {musicObj.composer}</h6>
+            <h4 style={{ fontWeight: 'bold' }}>{musicObj.name}</h4>
+            <h6 style={{ fontWeight: 'bolder', fontStyle: 'italic' }}>By {musicObj.composer}</h6>
           </div>
         </div>
         <hr />
