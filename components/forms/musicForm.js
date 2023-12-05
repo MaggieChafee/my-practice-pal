@@ -81,12 +81,12 @@ function MusicForm({ musicObj }) {
             <Form.Label>Start Date - Change to Date Picker</Form.Label>
             <Form.Control type="date" name="startDate" value={musicFormInput.startDate} onChange={handleChange} />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3">
             <Form.Check
               type="checkbox"
               label="I've completed the piece!"
               name="musicCompleted"
-              value={musicFormInput.musicCompleted}
+              checked={musicFormInput.musicCompleted}
               onChange={(e) => {
                 setMusicFormInput((prevState) => ({
                   ...prevState,
