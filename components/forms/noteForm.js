@@ -50,16 +50,30 @@ function NoteForm({ noteObj }) {
       <div>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Notepad Date</Form.Label>
+            <h5>Notepad Date</h5>
             <Form.Control type="date" name="date" value={noteFormInput.date} onChange={handleChange} />
           </Form.Group>
+          <div style={{ height: '15px' }} />
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Mark this Notepad as Closed" name="noteClosed" value={noteFormInput.noteClosed} onChange={handleChange} />
+            <Form.Check
+              type="checkbox"
+              label="Mark this Notepad as Closed"
+              name="noteClosed"
+              checked={noteFormInput.noteClosed}
+              onChange={(e) => {
+                setNoteFormInput((prevState) => ({
+                  ...prevState,
+                  noteClosed: e.target.checked,
+                }));
+              }}
+            />
           </Form.Group>
+          <div style={{ height: '15px' }} />
           <Form.Group controlId="exampleForm.ControlTextarea1" name="noteClosed">
-            <Form.Label>Jot Sheet</Form.Label>
+            <h5>Jot Sheet</h5>
             <Form.Control as="textarea" rows={7} name="jotSheet" value={noteFormInput.jotSheet} onChange={handleChange} />
           </Form.Group>
+          <div style={{ height: '30px' }} />
           <Button className="btn-orange" variant="dark" type="submit">
             {noteObj.firebaseKey ? 'Update' : 'Create'} Notepad
           </Button>
