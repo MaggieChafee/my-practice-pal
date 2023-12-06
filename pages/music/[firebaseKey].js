@@ -9,18 +9,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { viewMusicDetails } from '../../api/mergedData';
 import NoteCard from '../../components/cards/noteCard';
+import { getNotesByMusicId } from '../../api/notepadData';
 
 function ViewMusicDetails() {
   const [musicDetails, setMusicDetails] = useState({});
+  const [note, setNotes] = useState([]);
+  const [cNote, setCNotes] = useState([]);
   const router = useRouter();
   const { firebaseKey } = router.query;
   const getMusicDeats = () => {
     viewMusicDetails(firebaseKey).then(setMusicDetails);
   };
 
+  const getFilteredNotes = () => {
+    getNotesByMusicId(firebaseKey).then((openNotes) => {
+      const openNotepads = openNotes.filter((openNote) => openNote.noteClosed === false);
+      setNotes(openNotepads);
+    });
+  };
+
+  const getFilteredNotesOpen = () => {
+    getNotesByMusicId(firebaseKey).then((closedNotes) => {
+      const closedNotepads = closedNotes.filter((closedNote) => closedNote.noteClosed === true);
+      setCNotes(closedNotepads);
+    });
+  };
+
   const star = <FontAwesomeIcon icon={faStar} size="lg" style={{ color: '#f9dd76' }} />;
 
   useEffect(() => {
+    getFilteredNotesOpen();
+    getFilteredNotes();
     getMusicDeats();
   }, []);
 
@@ -55,9 +74,18 @@ function ViewMusicDetails() {
           <Button className="btn-orange" variant="dark">Add a Notepad</Button>
         </Link>
       </div>
-      <div className="cards-container">
-        {musicDetails.notes?.map((notepad) => (
-          <NoteCard key={notepad.firebaseKey} noteObj={notepad} onUpdate={getMusicDeats} />
+      <div style={{ height: '50px' }} />
+      <h4>Current Notepad</h4>
+      <div className="cards-container-details">
+        {note?.map((filteredNotepad) => (
+          <NoteCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
+        ))}
+      </div>
+      <div style={{ height: '50px' }} />
+      <h4>Past Notepads</h4>
+      <div className="cards-container-details">
+        {cNote?.map((filteredNotepad) => (
+          <NoteCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
         ))}
       </div>
     </div>

@@ -16,11 +16,12 @@ function NoteCard({ noteObj, onUpdate }) {
   const checkmark = <FontAwesomeIcon icon={faCheck} size="2xl" style={{ color: '#ed6335' }} />;
   const condition = noteObj.noteClosed;
   const noteResult = condition ? 'completed' : 'not-completed';
+  const headResult = condition ? 'card-head-closed' : 'card-head-open';
 
   return (
     <Card className={noteResult} style={{ width: '18rem' }}>
       <Card.Body>
-        <div className="card-head">
+        <div className={headResult}>
           <Card.Text>{noteObj.noteClosed ? checkmark : ''}</Card.Text>
           <div>
             <h4 style={{ fontWeight: 'bold' }}>Notepad Date:</h4>

@@ -34,8 +34,7 @@ function MusicCard({ musicObj, onUpdate }) {
         </div>
         <hr />
         <Card.Text>{musicObj.category}</Card.Text>
-        <Card.Text>{musicObj.startDate}</Card.Text>
-        <Card.Link href={musicObj.recording}>Reference Recording</Card.Link>
+        <Card.Text>Start Date: {musicObj.startDate}</Card.Text>
         <div style={{ height: '25px' }} />
         <div className="button-container">
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>

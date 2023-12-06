@@ -69,6 +69,16 @@ a {
   padding: 25px;
 }
 
+.cards-container-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+  row-gap: 15px;
+  padding: 25px;
+}
+
 .details-head {
   display: flex;
   flex-direction: row;
