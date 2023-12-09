@@ -101,16 +101,13 @@ a {
 }
 
 .not-completed {
-  border-color: #064c72;
   border-radius: 25px;
-  border-style: solid;
-  border-width: 5px;
+  border-width: 0px;
 }
 
 .completed {
   background-color: #026c80;
   color: white;
   border-radius: 25px;
-  border-style: solid;
-  border-width: 5px;
+  border-width: 2px;
 }

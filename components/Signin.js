@@ -13,9 +13,9 @@ function Signin() {
         margin: '0 auto',
       }}
     >
-      <h1>Hi there!</h1>
+      <h1>Welcome to My Practice Pal!</h1>
       <p>Click the button below to login!</p>
-      <Button type="button" size="lg" className="copy-btn" onClick={signIn}>
+      <Button type="button" size="lg" className="btn-orange" variant="dark" onClick={signIn}>
         Sign In
       </Button>
     </div>
