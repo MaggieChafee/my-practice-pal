@@ -29,7 +29,7 @@ function ViewNotePadDetails() {
           <h1>
             {noteDetails?.date} {noteDetails?.noteClosed ? checkmark : ''}
           </h1>
-          <Link href={`/notepad/edit/${noteDetails.firebaseKey}`} passHref>
+          <Link href={`/journal/edit/${noteDetails.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
         </div>

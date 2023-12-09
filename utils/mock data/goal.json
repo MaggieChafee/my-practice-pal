@@ -1,35 +1,40 @@
 {
   "-NlEOJ_GpuvVYVpAnwY2": { 
       "firebaseKey": "-NlEOJ_GpuvVYVpAnwY2", 
-      "goal": "Morbi quis tortor id nulla ultrices aliquet.", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.",  
       "frequency": "Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.", 
       "goalCompleted": true, 
       "journalId": "-NkwoLK_luzZMpT2F4Mn" 
     },
   "-NlEOJ_HD5Mhi50AF6wn": { 
       "firebaseKey": "-NlEOJ_HD5Mhi50AF6wn", 
-      "goal": "Fusce consequat.", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.", 
       "frequency": "Integer ac neque. Duis bibendum.", 
       "goalCompleted": true, 
       "journalId": "-NkwoLK_luzZMpT2F4Mn" 
     },
   "-NlEOJ_IxeVE5Bmh8biu": { 
       "firebaseKey": "-NlEOJ_IxeVE5Bmh8biu", 
-      "goal": "Pellentesque at nulla.", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.", 
       "frequency": "Quisque id justo sit amet sapien dignissim vestibulum.", 
       "goalCompleted": false, 
       "journalId": "-NkwoLK_luzZMpT2F4Mn" 
   },
   "-NlEOJ_IxeVE5Bmh8biv": { 
       "firebaseKey": "-NlEOJ_IxeVE5Bmh8biv", 
-      "goal": "Vivamus tortor.", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.", 
       "frequency": "Donec semper sapien a libero.", 
       "goalCompleted": true, 
       "journalId": "-NkwoLK_luzZMpT2F4Mn" 
   },
   "-NlEOJ_J5YHhNzp8U6oE": { 
       "firebaseKey": "-NlEOJ_J5YHhNzp8U6oE", 
-      "goal": "Aenean lectus.", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.", 
       "frequency": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.", 
       "goalCompleted": false, 
       "journalId": "-NkwoLK_luzZMpT2F4Mn" 
