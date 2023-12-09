@@ -11,6 +11,7 @@ const initialState = {
   category: '',
   musicCompleted: false,
   startDate: '',
+  endDate: '',
   recording: '',
 };
 
@@ -78,8 +79,12 @@ function MusicForm({ musicObj }) {
             <Form.Control type="text" name="recording" value={musicFormInput.recording} onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Start Date - Change to Date Picker</Form.Label>
+            <Form.Label>Start Date</Form.Label>
             <Form.Control type="date" name="startDate" value={musicFormInput.startDate} onChange={handleChange} />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>End Date</Form.Label>
+            <Form.Control type="date" name="startDate" value={musicFormInput.endDate} onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Check
@@ -110,6 +115,7 @@ MusicForm.propTypes = {
     composer: PropTypes.string,
     category: PropTypes.string,
     startDate: PropTypes.string,
+    endDate: PropTypes.string,
     musicCompleted: PropTypes.bool,
     recording: PropTypes.string,
     firebaseKey: PropTypes.string,

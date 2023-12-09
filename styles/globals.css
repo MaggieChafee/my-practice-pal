@@ -79,6 +79,15 @@ a {
   padding: 25px;
 }
 
+.cards-container-journalentry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  row-gap: 15px;
+  padding: 25px;
+}
+
 .details-head {
   display: flex;
   flex-direction: row;
@@ -103,6 +112,7 @@ a {
 .not-completed {
   border-radius: 25px;
   border-width: 0px;
+  box-shadow: 10px 10px #14213d;
 }
 
 .completed {
@@ -110,4 +120,5 @@ a {
   color: white;
   border-radius: 25px;
   border-width: 2px;
+  box-shadow: 10px 10px #14213d;
 }

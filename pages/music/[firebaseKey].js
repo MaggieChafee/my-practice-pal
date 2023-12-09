@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { viewMusicDetails } from '../../api/mergedData';
-import NoteCard from '../../components/cards/noteCard';
+import NotepadCard from '../../components/cards/notepadCard';
 import { getNotesByMusicId } from '../../api/notepadData';
 
 function ViewMusicDetails() {
@@ -78,14 +78,14 @@ function ViewMusicDetails() {
       <h4>Current Journal</h4>
       <div className="cards-container-details">
         {note?.map((filteredNotepad) => (
-          <NoteCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
+          <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
         ))}
       </div>
       <div style={{ height: '50px' }} />
       <h4>Past Journals</h4>
       <div className="cards-container-details">
         {cNote?.map((filteredNotepad) => (
-          <NoteCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
+          <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
         ))}
       </div>
     </div>
