@@ -55,7 +55,7 @@ function ViewNotePadDetails() {
         <hr />
         <div>
           <Link href={`/journalEntry/new/${noteDetails.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Add a Practice Journal Note</Button>
+            <Button className="btn-orange" variant="dark">Add a Note</Button>
           </Link>
           <Link passHref href="/goal/new">
             <Button className="btn-orange" variant="dark">Add a Goal</Button>

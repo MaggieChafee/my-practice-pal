@@ -6,13 +6,14 @@ import PropTypes from 'prop-types';
 export default function JournalEntryCard({ entryObj }) {
   return (
     <Card className="not-completed">
-      <Card.Header as="h5">  Date: {entryObj.date}</Card.Header>
+      <Card.Header as="h5" style={{ fontWeight: 'bolder' }}>  Date: {entryObj.date}</Card.Header>
       <Card.Body>
         <Card.Title>{entryObj.category}</Card.Title>
         <Card.Text>
           {entryObj.jotSheet}
         </Card.Text>
         <Button className="btn-orange" variant="dark">Edit</Button>
+        <Button className="btn-orange" variant="dark">Delete</Button>
       </Card.Body>
     </Card>
   );

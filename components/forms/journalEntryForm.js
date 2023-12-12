@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, FormLabel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { createEntry, updateEntry } from '../../api/journalEntryData';
@@ -55,11 +55,11 @@ function JournalEntryForm({ entryObj }) {
           </Form.Group>
           <div style={{ height: '15px' }} />
           <Form.Group controlId="formBasicCheckbox">
-            <Form.Select name="category" aria-label="Default select example">
-              <option>Choose Category...</option>
-              <option value="Lesson">Lesson</option>
-              <option value="Practice">Practice</option>
-              <option value="Miscellaneous">Miscellaneous</option>
+            <FormLabel>Category</FormLabel>
+            <Form.Select name="category" value={entryFormInput.category} aria-label="Default select example" onChange={handleChange}>
+              <option>Lesson</option>
+              <option>Practice</option>
+              <option>Miscellaneous</option>
             </Form.Select>
           </Form.Group>
           <div style={{ height: '15px' }} />
