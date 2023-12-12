@@ -64,8 +64,8 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 15px;
-  row-gap: 15px;
+  gap: 20px;
+  row-gap: 20px;
   padding: 25px;
 }
 
@@ -74,8 +74,8 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 15px;
-  row-gap: 15px;
+  gap: 20px;
+  row-gap: 20px;
   padding: 25px;
 }
 

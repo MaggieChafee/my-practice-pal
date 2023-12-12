@@ -9,10 +9,13 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { viewNoteDetails } from '../../../api/mergedData';
 import JournalEntryCard from '../../../components/cards/journalEntryCard';
 import { getEntriesByJournalId } from '../../../api/journalEntryData';
+import { getGoalsByJournalId } from '../../../api/goalData';
+import GoalCard from '../../../components/cards/goalCard';
 
 function ViewNotePadDetails() {
   const [noteDetails, setNoteDetails] = useState({});
   const [journalEntries, setJournalEntries] = useState([]);
+  const [goal, setGoal] = useState([]);
   const router = useRouter();
   const { firebaseKey } = router.query;
   const getNoteDeats = () => {
@@ -23,25 +26,38 @@ function ViewNotePadDetails() {
     getEntriesByJournalId(firebaseKey).then(setJournalEntries);
   };
 
+  const getJournalGoals = () => {
+    getGoalsByJournalId(firebaseKey).then(setGoal);
+  };
+
   const checkmark = <FontAwesomeIcon icon={faCheck} size="lg" style={{ color: '#ed6335' }} />;
 
   useEffect(() => {
     getNoteDeats();
     getJournalEntries();
-  }, []);
+    getJournalGoals();
+  }, [firebaseKey]);
 
   return (
     <div className="page-container">
       <div>
         <div className="details-head">
           <h1>
-            Journal for {noteDetails?.startDate} to {noteDetails.endDate} {noteDetails?.noteClosed ? checkmark : ''}
+            {noteDetails?.noteClosed ? checkmark : ''}
           </h1>
+          <h3>
+            {noteDetails?.startDate} to {noteDetails.endDate}
+          </h3>
           <Link href={`/journal/edit/${noteDetails.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
         </div>
         <hr />
+        <div className="cards-container">
+          {goal.map((allGoals) => (
+            <GoalCard key={allGoals.firebaseKey} goalObj={allGoals} />
+          ))}
+        </div>
         <div className="cards-container-journalentry">
           {journalEntries.map((allEntries) => (
             <JournalEntryCard key={allEntries.firebaseKey} entryObj={allEntries} />
