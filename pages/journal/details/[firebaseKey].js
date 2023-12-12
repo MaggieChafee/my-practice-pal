@@ -53,6 +53,14 @@ function ViewNotePadDetails() {
           </Link>
         </div>
         <hr />
+        <div>
+          <Link href={`/journalEntry/new/${noteDetails.firebaseKey}`} passHref>
+            <Button className="btn-orange" variant="dark">Add a Practice Journal Note</Button>
+          </Link>
+          <Link passHref href="/goal/new">
+            <Button className="btn-orange" variant="dark">Add a Goal</Button>
+          </Link>
+        </div>
         <div className="cards-container">
           {goal.map((allGoals) => (
             <GoalCard key={allGoals.firebaseKey} goalObj={allGoals} />

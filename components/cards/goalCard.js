@@ -26,7 +26,7 @@ function GoalCard({ goalObj }) {
         </div>
         <hr />
         <div>
-          <h6 style={{ fontWeight: 'bolder' }}>Frequency</h6>
+          <h6 style={{ fontWeight: 'bolder' }}>How Often I Want Practice:</h6>
           <CardText>{goalObj.frequency}</CardText>
         </div>
         <div style={{ height: '8px' }} />
@@ -36,7 +36,7 @@ function GoalCard({ goalObj }) {
         </div>
         <div style={{ height: '8px' }} />
         <div>
-          <h6 style={{ fontWeight: 'bolder' }}>How I Will Practice:</h6>
+          <h6 style={{ fontWeight: 'bolder' }}>How I Want Practice:</h6>
           <CardText>{goalObj.how}</CardText>
         </div>
         <div style={{ height: '25px' }} />
