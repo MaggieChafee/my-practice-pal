@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 export default function JournalEntryCard({ entryObj }) {
   return (
@@ -12,8 +13,12 @@ export default function JournalEntryCard({ entryObj }) {
         <Card.Text>
           {entryObj.jotSheet}
         </Card.Text>
-        <Button className="btn-orange" variant="dark">Edit</Button>
-        <Button className="btn-orange" variant="dark">Delete</Button>
+        <div>
+          <Link href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>
+            <Button className="btn-orange" variant="dark">Edit</Button>
+          </Link>
+          <Button className="btn-orange" variant="dark">Delete</Button>
+        </div>
       </Card.Body>
     </Card>
   );

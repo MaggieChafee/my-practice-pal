@@ -41,7 +41,7 @@ function GoalCard({ goalObj }) {
         </div>
         <div style={{ height: '25px' }} />
         <div className="button-container">
-          <Link href={`/music/edit/${goalObj.firebaseKey}`} passHref>
+          <Link href={`/goal/edit/${goalObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
           <Button className="btn-orange" variant="dark">Delete</Button>
