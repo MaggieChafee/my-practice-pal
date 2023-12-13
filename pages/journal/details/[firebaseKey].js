@@ -63,12 +63,12 @@ function ViewNotePadDetails() {
         </div>
         <div className="cards-container">
           {goal.map((allGoals) => (
-            <GoalCard key={allGoals.firebaseKey} goalObj={allGoals} />
+            <GoalCard key={allGoals.firebaseKey} goalObj={allGoals} onUpdate={getJournalGoals} />
           ))}
         </div>
         <div className="cards-container-journalentry">
           {journalEntries.map((allEntries) => (
-            <JournalEntryCard key={allEntries.firebaseKey} entryObj={allEntries} />
+            <JournalEntryCard key={allEntries.firebaseKey} entryObj={allEntries} onUpdate={getJournalEntries} />
           ))}
         </div>
       </div>

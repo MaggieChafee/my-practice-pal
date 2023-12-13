@@ -6,8 +6,15 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { deleteGoal } from '../../api/goalData';
 
-function GoalCard({ goalObj }) {
+function GoalCard({ goalObj, onUpdate }) {
+  const deleteThisGoal = () => {
+    if (window.confirm('Do you want to delete this goal?')) {
+      deleteGoal(goalObj.firebaseKey).then(() => onUpdate());
+    }
+  };
+
   const star = <FontAwesomeIcon icon={faStar} size="lg" style={{ color: '#f9dd76' }} />;
   const condition = goalObj.goalCompleted;
   const result = condition ? 'completed' : 'not-completed';
@@ -44,7 +51,7 @@ function GoalCard({ goalObj }) {
           <Link href={`/goal/edit/${goalObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
-          <Button className="btn-orange" variant="dark">Delete</Button>
+          <Button className="btn-orange" variant="dark" onClick={deleteThisGoal}>Delete</Button>
         </div>
       </Card.Body>
     </Card>
@@ -59,6 +66,7 @@ GoalCard.propTypes = {
     what: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default GoalCard;
