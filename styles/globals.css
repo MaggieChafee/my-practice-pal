@@ -64,8 +64,8 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 15px;
-  row-gap: 15px;
+  gap: 20px;
+  row-gap: 20px;
   padding: 25px;
 }
 
@@ -74,6 +74,15 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  gap: 20px;
+  row-gap: 20px;
+  padding: 25px;
+}
+
+.cards-container-journalentry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 15px;
   row-gap: 15px;
   padding: 25px;
@@ -103,6 +112,7 @@ a {
 .not-completed {
   border-radius: 25px;
   border-width: 0px;
+  box-shadow: 10px 10px #14213d;
 }
 
 .completed {
@@ -110,4 +120,5 @@ a {
   color: white;
   border-radius: 25px;
   border-width: 2px;
+  box-shadow: 10px 10px #14213d;
 }

@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleNote } from '../../../api/notepadData';
-import NoteForm from '../../../components/forms/noteForm';
+import NotepadForm from '../../../components/forms/notepadForm';
 
-function EditNote() {
+function EditNotepad() {
   const [editNote, setEditNote] = useState({});
   const router = useRouter();
   const { firebaseKey } = router.query;
@@ -15,11 +15,11 @@ function EditNote() {
   return (
     <>
       <div className="page-container">
-        <h1>Update Notepad</h1>
-        <NoteForm noteObj={editNote} />
+        <h1>Update Journal</h1>
+        <NotepadForm noteObj={editNote} />
       </div>
     </>
   );
 }
 
-export default EditNote;
+export default EditNotepad;

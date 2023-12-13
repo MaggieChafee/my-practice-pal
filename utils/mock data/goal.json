@@ -1,0 +1,26 @@
+{
+  "-NlEOJ_GpuvVYVpAnwY2": { 
+      "firebaseKey": "-NlEOJ_GpuvVYVpAnwY2", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.",  
+      "frequency": "Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.", 
+      "goalCompleted": true, 
+      "journalId": "-NlEpc_VJdqvStx2Y0iI"
+    },
+  "-NlEOJ_HD5Mhi50AF6wn": { 
+      "firebaseKey": "-NlEOJ_HD5Mhi50AF6wn", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.", 
+      "frequency": "Integer ac neque. Duis bibendum.", 
+      "goalCompleted": true, 
+      "journalId": "-NlEpc_VJdqvStx2Y0iI" 
+    },
+  "-NlEOJ_IxeVE5Bmh8biu": { 
+      "firebaseKey": "-NlEOJ_IxeVE5Bmh8biu", 
+      "what": "Morbi quis tortor id nulla ultrices aliquet.",
+      "how": "Morbi quis tortor id nulla ultrices aliquet.", 
+      "frequency": "Quisque id justo sit amet sapien dignissim vestibulum.", 
+      "goalCompleted": false, 
+      "journalId": "-NlEpc_VJdqvStx2Y0iI" 
+  }
+}

@@ -1,13 +1,13 @@
 import React from 'react';
-import NoteForm from '../../../components/forms/noteForm';
+import NotepadForm from '../../../components/forms/notepadForm';
 
 export default function AddNotepad() {
   return (
     <>
       <div className="page-container">
-        <h1>Add a Notepad</h1>
+        <h1>Add a Journal</h1>
         <div>
-          <NoteForm />
+          <NotepadForm />
         </div>
       </div>
     </>

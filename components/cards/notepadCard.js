@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { deleteSingleNote } from '../../api/notepadData';
 
-function NoteCard({ noteObj, onUpdate }) {
+function NotepadCard({ noteObj, onUpdate }) {
   const deleteThisNote = () => {
-    if (window.confirm(`Do you want to delete Notepad from ${noteObj.date}?`)) {
+    if (window.confirm('Do you want to delete this practice journal?')) {
       deleteSingleNote(noteObj.firebaseKey).then(() => onUpdate());
     }
   };
@@ -19,21 +19,21 @@ function NoteCard({ noteObj, onUpdate }) {
   const headResult = condition ? 'card-head-closed' : 'card-head-open';
 
   return (
-    <Card className={noteResult} style={{ width: '18rem' }}>
+    <Card className={noteResult} style={{ width: '20rem' }}>
       <Card.Body>
         <div className={headResult}>
           <Card.Text>{noteObj.noteClosed ? checkmark : ''}</Card.Text>
           <div>
-            <h4 style={{ fontWeight: 'bold' }}>Notepad Date:</h4>
-            <h5 style={{ fontWeight: 'bolder' }}>{noteObj.date}</h5>
+            <h4 style={{ fontWeight: 'bold' }}>Journal Date:</h4>
+            <h5 style={{ fontWeight: 'bolder' }}>{noteObj.startDate} to {noteObj.endDate}</h5>
           </div>
         </div>
         <div style={{ height: '25px' }} />
         <div className="button-container">
-          <Link href={`/notepad/details/${noteObj.firebaseKey}`} passHref>
+          <Link href={`/journal/details/${noteObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">View</Button>
           </Link>
-          <Link href={`/notepad/edit/${noteObj.firebaseKey}`} passHref>
+          <Link href={`/journal/edit/${noteObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Edit</Button>
           </Link>
           <Button className="btn-orange" variant="dark" onClick={deleteThisNote}>Delete</Button>
@@ -43,13 +43,14 @@ function NoteCard({ noteObj, onUpdate }) {
   );
 }
 
-NoteCard.propTypes = {
+NotepadCard.propTypes = {
   noteObj: PropTypes.shape({
     noteClosed: PropTypes.bool,
-    date: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
 
-export default NoteCard;
+export default NotepadCard;

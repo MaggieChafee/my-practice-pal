@@ -5,12 +5,12 @@ import { useRouter } from 'next/router';
 import { createNote, updateNote } from '../../api/notepadData';
 
 const initialState = {
-  date: '',
-  jotSheet: '',
+  startDate: '',
+  endDate: '',
   noteClosed: false,
 };
 
-function NoteForm({ noteObj }) {
+function NotepadForm({ noteObj }) {
   const router = useRouter();
   const { firebaseKey } = router.query;
   const [noteFormInput, setNoteFormInput] = useState({ ...initialState, musicId: firebaseKey });
@@ -50,14 +50,19 @@ function NoteForm({ noteObj }) {
       <div>
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
-            <h5>Notepad Date</h5>
-            <Form.Control type="date" name="date" value={noteFormInput.date} onChange={handleChange} />
+            <h5>Journal Start Date</h5>
+            <Form.Control type="date" name="startDate" value={noteFormInput.startDate} onChange={handleChange} />
+          </Form.Group>
+          <div style={{ height: '15px' }} />
+          <Form.Group controlId="formBasicEmail">
+            <h5>Journal End Date</h5>
+            <Form.Control type="date" name="endDate" value={noteFormInput.endDate} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check
               type="checkbox"
-              label="Mark this Notepad as Closed"
+              label="Mark this Journal as Closed"
               name="noteClosed"
               checked={noteFormInput.noteClosed}
               onChange={(e) => {
@@ -68,14 +73,9 @@ function NoteForm({ noteObj }) {
               }}
             />
           </Form.Group>
-          <div style={{ height: '15px' }} />
-          <Form.Group controlId="exampleForm.ControlTextarea1" name="noteClosed">
-            <h5>Jot Sheet</h5>
-            <Form.Control as="textarea" rows={7} name="jotSheet" value={noteFormInput.jotSheet} onChange={handleChange} />
-          </Form.Group>
           <div style={{ height: '30px' }} />
           <Button className="btn-orange" variant="dark" type="submit">
-            {noteObj.firebaseKey ? 'Update' : 'Create'} Notepad
+            {noteObj.firebaseKey ? 'Update' : 'Create'} Journal
           </Button>
         </Form>
       </div>
@@ -83,18 +83,18 @@ function NoteForm({ noteObj }) {
   );
 }
 
-NoteForm.propTypes = {
+NotepadForm.propTypes = {
   noteObj: PropTypes.shape({
-    date: PropTypes.string,
-    jotSheet: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
     noteClosed: PropTypes.bool,
     firebaseKey: PropTypes.string,
     musicId: PropTypes.string,
   }),
 };
 
-NoteForm.defaultProps = {
+NotepadForm.defaultProps = {
   noteObj: initialState,
 };
 
-export default NoteForm;
+export default NotepadForm;

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { viewMusicDetails } from '../../api/mergedData';
-import NoteCard from '../../components/cards/noteCard';
+import NotepadCard from '../../components/cards/notepadCard';
 import { getNotesByMusicId } from '../../api/notepadData';
 
 function ViewMusicDetails() {
@@ -70,22 +70,22 @@ function ViewMusicDetails() {
       </div>
       <div style={{ height: '30px' }} />
       <div>
-        <Link href={`../notepad/new/${musicDetails.firebaseKey}`} passHref>
-          <Button className="btn-orange" variant="dark">Add a Notepad</Button>
+        <Link href={`../journal/new/${musicDetails.firebaseKey}`} passHref>
+          <Button className="btn-orange" variant="dark">Add a Journal</Button>
         </Link>
       </div>
       <div style={{ height: '50px' }} />
-      <h4>Current Notepad</h4>
+      <h4>Current Journal</h4>
       <div className="cards-container-details">
         {note?.map((filteredNotepad) => (
-          <NoteCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
+          <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
         ))}
       </div>
       <div style={{ height: '50px' }} />
-      <h4>Past Notepads</h4>
+      <h4>Past Journals</h4>
       <div className="cards-container-details">
         {cNote?.map((filteredNotepad) => (
-          <NoteCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
+          <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
         ))}
       </div>
     </div>
