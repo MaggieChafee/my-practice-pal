@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Button, Card, CardText } from 'react-bootstrap';
+import { Card, CardText, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { deleteGoal } from '../../api/goalData';
@@ -48,10 +47,13 @@ function GoalCard({ goalObj, onUpdate }) {
         </div>
         <div style={{ height: '25px' }} />
         <div className="button-container">
-          <Link href={`/goal/edit/${goalObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisGoal}>Delete</Button>
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-dark" />
+            <Dropdown.Menu>
+              <Dropdown.Item href={`/goal/edit/${goalObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Dropdown.Item onClick={deleteThisGoal}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>

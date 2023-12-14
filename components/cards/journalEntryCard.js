@@ -1,8 +1,7 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import { Dropdown } from 'react-bootstrap';
 import { deleteEntry } from '../../api/journalEntryData';
 
 export default function JournalEntryCard({ entryObj, onUpdate }) {
@@ -21,10 +20,13 @@ export default function JournalEntryCard({ entryObj, onUpdate }) {
           {entryObj.jotSheet}
         </Card.Text>
         <div>
-          <Link href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisJournalEntry}>Delete</Button>
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-basic" />
+            <Dropdown.Menu>
+              <Dropdown.Item href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Dropdown.Item onClick={deleteThisJournalEntry}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>

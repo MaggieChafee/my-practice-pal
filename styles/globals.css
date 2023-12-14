@@ -41,6 +41,13 @@ a {
   border-width: 2px;
 }
 
+.btn-orange-outline {
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #ed6335;
+  border-width: 2px;
+}
+
 .btn-green {
   border-radius: 25px;
   background-color: #026c80;
@@ -52,7 +59,8 @@ a {
 .button-container {
   display: flex;
   direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-content: flex-end;
 }
 /* page styling */
 .page-container {

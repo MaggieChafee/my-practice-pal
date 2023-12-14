@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -33,10 +33,14 @@ function NotepadCard({ noteObj, onUpdate }) {
           <Link href={`/journal/details/${noteObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">View</Button>
           </Link>
-          <Link href={`/journal/edit/${noteObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisNote}>Delete</Button>
+          <div style={{ width: '5px' }} />
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-basic" />
+            <Dropdown.Menu>
+              <Dropdown.Item href={`/journal/edit/${noteObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Dropdown.Item onClick={deleteThisNote}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>

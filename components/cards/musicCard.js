@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,10 +40,14 @@ function MusicCard({ musicObj, onUpdate }) {
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">View</Button>
           </Link>
-          <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisMusic}>Delete</Button>
+          <div style={{ width: '5px' }} />
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-basic" />
+            <Dropdown.Menu>
+              <Dropdown.Item href={`/music/edit/${musicObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Dropdown.Item onClick={deleteThisMusic}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>
