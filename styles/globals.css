@@ -42,10 +42,16 @@ a {
 }
 
 .btn-orange-outline {
+  width: 40px;
+  height: 40px;
   border-radius: 25px;
   border-style: solid;
   border-color: #ed6335;
   border-width: 2px;
+}
+
+.dropdown-toggle::after {
+  display: none !important; 
 }
 
 .btn-green {

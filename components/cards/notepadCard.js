@@ -4,7 +4,7 @@ import { Button, Card, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { deleteSingleNote } from '../../api/notepadData';
 
 function NotepadCard({ noteObj, onUpdate }) {
@@ -14,6 +14,7 @@ function NotepadCard({ noteObj, onUpdate }) {
     }
   };
   const checkmark = <FontAwesomeIcon icon={faCheck} size="2xl" style={{ color: '#ed6335' }} />;
+  const ellipsis = <FontAwesomeIcon icon={faEllipsis} size="sm" style={{ color: '#ed6335' }} />;
   const condition = noteObj.noteClosed;
   const noteResult = condition ? 'completed' : 'not-completed';
   const headResult = condition ? 'card-head-closed' : 'card-head-open';
@@ -35,7 +36,7 @@ function NotepadCard({ noteObj, onUpdate }) {
           </Link>
           <div style={{ width: '5px' }} />
           <Dropdown>
-            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-basic" />
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href={`/journal/edit/${noteObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
               <Dropdown.Item onClick={deleteThisNote}>Delete</Dropdown.Item>

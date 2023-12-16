@@ -5,7 +5,7 @@ import { Button, Card, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { deleteMusicAndNotes } from '../../api/mergedData';
 
 function MusicCard({ musicObj, onUpdate }) {
@@ -16,6 +16,7 @@ function MusicCard({ musicObj, onUpdate }) {
   };
 
   const star = <FontAwesomeIcon icon={faStar} size="2xl" style={{ color: '#f9dd76' }} />;
+  const ellipsis = <FontAwesomeIcon icon={faEllipsis} size="sm" style={{ color: '#ed6335' }} />;
   const condition = musicObj.musicCompleted;
   const result = condition ? 'completed' : 'not-completed';
   const headResult = condition ? 'card-head-closed' : 'card-head-open';
@@ -42,7 +43,7 @@ function MusicCard({ musicObj, onUpdate }) {
           </Link>
           <div style={{ width: '5px' }} />
           <Dropdown>
-            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-basic" />
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href={`/music/edit/${musicObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
               <Dropdown.Item onClick={deleteThisMusic}>Delete</Dropdown.Item>

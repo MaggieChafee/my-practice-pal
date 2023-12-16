@@ -4,7 +4,7 @@ import React from 'react';
 import { Card, CardText, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { deleteGoal } from '../../api/goalData';
 
 function GoalCard({ goalObj, onUpdate }) {
@@ -16,6 +16,7 @@ function GoalCard({ goalObj, onUpdate }) {
 
   const star = <FontAwesomeIcon icon={faStar} size="lg" style={{ color: '#f9dd76' }} />;
   const condition = goalObj.goalCompleted;
+  const ellipsis = <FontAwesomeIcon icon={faEllipsis} size="sm" style={{ color: '#ed6335' }} />;
   const result = condition ? 'completed' : 'not-completed';
   const headResult = condition ? 'card-head-closed' : 'card-head-open';
 
@@ -48,7 +49,7 @@ function GoalCard({ goalObj, onUpdate }) {
         <div style={{ height: '25px' }} />
         <div className="button-container">
           <Dropdown>
-            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark" id="dropdown-dark" />
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href={`/goal/edit/${goalObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
               <Dropdown.Item onClick={deleteThisGoal}>Delete</Dropdown.Item>
