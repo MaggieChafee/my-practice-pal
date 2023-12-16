@@ -16,7 +16,9 @@ const initialState = {
 function GoalForm({ goalObj }) {
   const router = useRouter();
   const { firebaseKey } = router.query;
-  const [formInput, setFormInput] = useState({ ...initialState, journalId: firebaseKey });
+  const [formInput, setFormInput] = useState({ ...initialState });
+
+  const getJournalId = firebaseKey;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,13 +34,13 @@ function GoalForm({ goalObj }) {
     e.preventDefault();
 
     if (goalObj.firebaseKey) {
-      updateGoal(formInput).then(() => router.push('/'));
+      updateGoal(formInput).then(() => router.push(`../../journal/details/${getJournalId}`));
     } else {
       const payload = { ...formInput };
       createGoal(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
+        const patchPayload = { firebaseKey: name, journalId: getJournalId };
         updateGoal(patchPayload).then(() => {
-          router.push('/');
+          router.push(`../../journal/details/${getJournalId}`);
         });
       });
     }

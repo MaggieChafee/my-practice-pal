@@ -13,7 +13,9 @@ const initialState = {
 function JournalEntryForm({ entryObj }) {
   const router = useRouter();
   const { firebaseKey } = router.query;
-  const [entryFormInput, setEntryFormInput] = useState({ ...initialState, journalId: firebaseKey });
+  const [entryFormInput, setEntryFormInput] = useState({ ...initialState });
+
+  const getJournalId = firebaseKey;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,13 +31,13 @@ function JournalEntryForm({ entryObj }) {
     e.preventDefault();
 
     if (entryObj.firebaseKey) {
-      updateEntry(entryFormInput).then(() => router.push('/'));
+      updateEntry(entryFormInput).then(() => router.push(`../../journal/details/${getJournalId}`));
     } else {
       const payload = { ...entryFormInput };
       createEntry(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
+        const patchPayload = { firebaseKey: name, journalId: getJournalId };
         updateEntry(patchPayload).then(() => {
-          router.push('/');
+          router.push(`../../journal/details/${getJournalId}`);
         });
       });
     }

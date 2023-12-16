@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { viewNoteDetails } from '../../../api/mergedData';
 import JournalEntryCard from '../../../components/cards/journalEntryCard';
 import { getEntriesByJournalId } from '../../../api/journalEntryData';
 import { getGoalsByJournalId } from '../../../api/goalData';
 import GoalCard from '../../../components/cards/goalCard';
+import { getSingleNote } from '../../../api/notepadData';
 
 function ViewNotePadDetails() {
   const [noteDetails, setNoteDetails] = useState({});
@@ -19,7 +19,7 @@ function ViewNotePadDetails() {
   const router = useRouter();
   const { firebaseKey } = router.query;
   const getNoteDeats = () => {
-    viewNoteDetails(firebaseKey).then(setNoteDetails);
+    getSingleNote(firebaseKey).then(setNoteDetails);
   };
 
   const getJournalEntries = () => {
@@ -43,7 +43,7 @@ function ViewNotePadDetails() {
       <div>
         <div className="details-head">
           <h1>
-            {noteDetails?.noteClosed ? checkmark : ''}
+            {noteDetails?.noteClosed ? checkmark : ''} {noteDetails.piece}
           </h1>
           <h3>
             {noteDetails?.startDate} to {noteDetails.endDate}
