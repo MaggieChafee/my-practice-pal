@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Button, Form, FormLabel, FormText,
+  Button, Form,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -52,28 +52,28 @@ function GoalForm({ goalObj }) {
     <>
       <div>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <FormLabel>How often do you want to practice?</FormLabel>
+          <Form.Group>
+            <Form.Label>How often do you want to practice?</Form.Label>
             <Form.Control as="textarea" rows={7} name="frequency" value={formInput.frequency} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
-          <Form.Group controlId="formBasicEmail">
-            <FormLabel>What do you want to practice?</FormLabel>
-            <FormText>ex. a certain section of the piece, overall tone, phrasing, etc.</FormText>
+          <Form.Group>
+            <Form.Label>What do you want to practice?</Form.Label>
+            <Form.Text style={{ fontStyle: 'italic', color: 'white', opacity: '70%' }}> ex. a certain section of the piece, overall tone, phrasing, etc.</Form.Text>
             <Form.Control as="textarea" rows={7} name="what" value={formInput.what} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
-          <Form.Group controlId="formBasicEmail">
-            <FormLabel>How will you practice this?</FormLabel>
-            <FormText>Be specific so you can reach your goal!</FormText>
+          <Form.Group>
+            <Form.Label>How will you practice this?</Form.Label>
+            <Form.Text style={{ fontStyle: 'italic', color: 'white', opacity: '70%' }}> Be specific so you can reach your goal!</Form.Text>
             <Form.Control as="textarea" rows={7} name="how" value={formInput.how} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
           <Form.Group className="mb-3">
             <Form.Check
               type="checkbox"
-              label="I've completed the piece!"
-              name="musicCompleted"
+              label="I've achieved this goal!"
+              name="goalCompleted"
               checked={formInput.goalCompleted}
               onChange={(e) => {
                 setFormInput((prevState) => ({
