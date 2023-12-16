@@ -36,6 +36,7 @@ function MusicCard({ musicObj, onUpdate }) {
         <hr />
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>Start Date: {musicObj.startDate}</Card.Text>
+        <Card.Text>End Date: {musicObj.endDate}</Card.Text>
         <div style={{ height: '25px' }} />
         <div className="button-container">
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
@@ -45,7 +46,9 @@ function MusicCard({ musicObj, onUpdate }) {
           <Dropdown>
             <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/music/edit/${musicObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
+                <Dropdown.Item>Edit</Dropdown.Item>
+              </Link>
               <Dropdown.Item onClick={deleteThisMusic}>Delete</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -64,6 +67,7 @@ MusicCard.propTypes = {
     startDate: PropTypes.string,
     recording: PropTypes.string,
     firebaseKey: PropTypes.string,
+    endDate: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

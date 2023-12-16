@@ -5,6 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { createGoal, updateGoal } from '../../api/goalData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   frequency: '',
@@ -18,6 +19,7 @@ function GoalForm({ goalObj }) {
   const { firebaseKey } = router.query;
   const [formInput, setFormInput] = useState({ ...initialState });
 
+  const { user } = useAuth();
   const getJournalId = firebaseKey;
 
   const handleChange = (e) => {
@@ -34,11 +36,11 @@ function GoalForm({ goalObj }) {
     e.preventDefault();
 
     if (goalObj.firebaseKey) {
-      updateGoal(formInput).then(() => router.push(`../../journal/details/${getJournalId}`));
+      updateGoal(formInput).then(() => router.push(`../../journal/details/${goalObj.journalId}`));
     } else {
       const payload = { ...formInput };
       createGoal(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name, journalId: getJournalId };
+        const patchPayload = { firebaseKey: name, journalId: getJournalId, uid: user.uid };
         updateGoal(patchPayload).then(() => {
           router.push(`../../journal/details/${getJournalId}`);
         });
@@ -103,6 +105,7 @@ GoalForm.propTypes = {
     goalCompleted: PropTypes.bool,
     firebaseKey: PropTypes.string,
     journalId: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 

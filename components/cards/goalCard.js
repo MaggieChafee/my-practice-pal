@@ -5,6 +5,7 @@ import { Card, CardText, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 import { deleteGoal } from '../../api/goalData';
 
 function GoalCard({ goalObj, onUpdate }) {
@@ -51,7 +52,9 @@ function GoalCard({ goalObj, onUpdate }) {
           <Dropdown>
             <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/goal/edit/${goalObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Link href={`/goal/edit/${goalObj.firebaseKey}`} passHref>
+                <Dropdown.Item>Edit</Dropdown.Item>
+              </Link>
               <Dropdown.Item onClick={deleteThisGoal}>Delete</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

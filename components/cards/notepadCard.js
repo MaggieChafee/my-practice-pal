@@ -31,14 +31,16 @@ function NotepadCard({ noteObj, onUpdate }) {
         </div>
         <div style={{ height: '25px' }} />
         <div className="button-container">
-          <Link href={`/journal/details/${noteObj.firebaseKey}`} passHref>
+          <Link href={`../journal/details/${noteObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">View</Button>
           </Link>
           <div style={{ width: '5px' }} />
           <Dropdown>
             <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/journal/edit/${noteObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Link href={`/journal/edit/${noteObj.firebaseKey}`} passHref>
+                <Dropdown.Item href={`/journal/edit/${noteObj.firebaseKey}`}>Edit</Dropdown.Item>
+              </Link>
               <Dropdown.Item onClick={deleteThisNote}>Delete</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

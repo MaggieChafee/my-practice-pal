@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { createNote, updateNote } from '../../api/notepadData';
 import { getSingleMusic } from '../../api/musicData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   startDate: '',
@@ -18,6 +19,7 @@ function NotepadForm({ noteObj }) {
   const { firebaseKey } = router.query;
   const [noteFormInput, setNoteFormInput] = useState({ ...initialState, musicId: firebaseKey });
   const [musicName, setMusicName] = useState({});
+  const { user } = useAuth();
 
   const getMusicName = () => {
     getSingleMusic(firebaseKey).then(setMusicName);
@@ -39,7 +41,7 @@ function NotepadForm({ noteObj }) {
     if (noteObj.firebaseKey) {
       updateNote(noteFormInput).then(() => router.push(`/music/${noteObj.musicId}`));
     } else {
-      const payload = { ...noteFormInput, piece: musicName.name };
+      const payload = { ...noteFormInput, piece: musicName?.name, uid: user.uid };
       createNote(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateNote(patchPayload).then(() => {
@@ -100,6 +102,7 @@ NotepadForm.propTypes = {
     piece: PropTypes.string,
     firebaseKey: PropTypes.string,
     musicId: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 

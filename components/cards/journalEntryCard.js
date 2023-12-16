@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 import { deleteEntry } from '../../api/journalEntryData';
 
 export default function JournalEntryCard({ entryObj, onUpdate }) {
@@ -27,7 +28,9 @@ export default function JournalEntryCard({ entryObj, onUpdate }) {
           <Dropdown>
             <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>Edit</Dropdown.Item>
+              <Link href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>
+                <Dropdown.Item>Edit</Dropdown.Item>
+              </Link>
               <Dropdown.Item onClick={deleteThisJournalEntry}>Delete</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
