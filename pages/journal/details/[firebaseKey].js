@@ -41,19 +41,27 @@ function ViewNotePadDetails() {
   return (
     <div className="page-container">
       <div>
+        <Link href={`../../music/${noteDetails.musicId}`} passHref>
+          <Button className="btn-green" variant="dark">Back to Music Details</Button>
+        </Link>
+        <div style={{ height: '25px' }} />
         <div className="details-head">
-          <h1>
-            {noteDetails?.noteClosed ? checkmark : ''} {noteDetails.piece}
-          </h1>
-          <h3>
-            {noteDetails?.startDate} to {noteDetails.endDate}
-          </h3>
-          <Link href={`/journal/edit/${noteDetails.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
+          <div>
+            <h1>
+              {noteDetails?.noteClosed ? checkmark : ''} {noteDetails.piece}
+            </h1>
+            <h3>
+              {noteDetails?.startDate} to {noteDetails.endDate}
+            </h3>
+          </div>
+          <div>
+            <Link href={`/journal/edit/${noteDetails.firebaseKey}`} passHref>
+              <Button className="btn-orange" variant="dark">Edit</Button>
+            </Link>
+          </div>
         </div>
         <hr />
-        <div>
+        <div className="button-container">
           <Link href={`/journalEntry/new/${noteDetails.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Add a Note</Button>
           </Link>

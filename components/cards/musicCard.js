@@ -42,7 +42,6 @@ function MusicCard({ musicObj, onUpdate }) {
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">View</Button>
           </Link>
-          <div style={{ width: '5px' }} />
           <Dropdown>
             <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
             <Dropdown.Menu>
