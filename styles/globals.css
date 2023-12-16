@@ -5,12 +5,12 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
   background: rgb(2,108,128);
   background: linear-gradient(0deg, rgba(141,180,173,1) 0%, rgba(2,108,128,1) 100%);
   background-attachment: fixed;
   padding: 20px;
-  color: white;
+  color: white !important;
 }
 
 a {
@@ -34,19 +34,19 @@ a {
 }
 
 .btn-orange {
-  border-radius: 25px;
-  background-color: #ed6335;
+  border-radius: 25px !important;
+  background-color: #ed6335 !important;
   border-style: solid;
-  border-color: #ed6335;
+  border-color: #ed6335 !important;
   border-width: 2px;
 }
 
 .btn-orange-outline {
-  width: 40px;
+  width: 40px; 
   height: 40px;
-  border-radius: 25px;
-  border-style: solid;
-  border-color: #ed6335;
+  border-radius: 25px !important;
+  border-style: solid !important;
+  border-color: #ed6335 !important;
   border-width: 2px;
 }
 
@@ -55,10 +55,10 @@ a {
 }
 
 .btn-green {
-  border-radius: 25px;
-  background-color: transparent;
+  border-radius: 25px !important;
+  background-color: transparent !important;
   border-style: solid;
-  border-color: white;
+  border-color: white !important;
   border-width: 2px;
 }
 
@@ -128,22 +128,20 @@ a {
 .card-head-closed {
   display: flex;
   flex-direction: row;
-  color: white; 
+  color: white !important; 
   gap: 10px;
 }
 
 .not-completed {
-  border-radius: 25px;
-  border-width: 0px;
+  border-radius: 25px !important;
+  border-width: 0px !important;
   box-shadow: 10px 10px #14213d;
 }
 
 .completed {
-  background-color: #026c80;
-  color: white;
-  border-radius: 25px;
-  border-width: 2px;
+  background-color: #026c80 !important;
+  color: white !important;
+  border-radius: 25px !important;
+  border-width: 2px !important;
   box-shadow: 10px 10px #14213d;
 }
-
-/* form styling */
