@@ -11,7 +11,7 @@ import { viewMusicDetails } from '../../api/mergedData';
 import NotepadCard from '../../components/cards/notepadCard';
 import { getNotesByMusicId } from '../../api/notepadData';
 
-function ViewMusicDetails() {
+function ViewMusicPageDetails() {
   const [musicDetails, setMusicDetails] = useState({});
   const [note, setNotes] = useState([]);
   const [cNote, setCNotes] = useState([]);
@@ -92,4 +92,4 @@ function ViewMusicDetails() {
   );
 }
 
-export default ViewMusicDetails;
+export default ViewMusicPageDetails;

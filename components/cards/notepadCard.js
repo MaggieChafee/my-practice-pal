@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faEllipsis } from '@fortawesome/free-solid-svg-icons';
-import { deleteSingleNote } from '../../api/notepadData';
+import { deleteEntireJournal } from '../../api/mergedData';
 
 function NotepadCard({ noteObj, onUpdate }) {
   const deleteThisNote = () => {
     if (window.confirm('Do you want to delete this practice journal?')) {
-      deleteSingleNote(noteObj.firebaseKey).then(() => onUpdate());
+      deleteEntireJournal(noteObj.firebaseKey).then(() => onUpdate());
     }
   };
   const checkmark = <FontAwesomeIcon icon={faCheck} size="2xl" style={{ color: '#ed6335' }} />;
