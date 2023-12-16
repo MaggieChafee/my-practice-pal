@@ -3,6 +3,7 @@ import { Button, Form, FormLabel } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { createEntry, updateEntry } from '../../api/journalEntryData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   date: '',
@@ -13,7 +14,10 @@ const initialState = {
 function JournalEntryForm({ entryObj }) {
   const router = useRouter();
   const { firebaseKey } = router.query;
-  const [entryFormInput, setEntryFormInput] = useState({ ...initialState, journalId: firebaseKey });
+  const [entryFormInput, setEntryFormInput] = useState({ ...initialState });
+  const { user } = useAuth();
+
+  const getJournalId = firebaseKey;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,13 +33,13 @@ function JournalEntryForm({ entryObj }) {
     e.preventDefault();
 
     if (entryObj.firebaseKey) {
-      updateEntry(entryFormInput).then(() => router.push('/'));
+      updateEntry(entryFormInput).then(() => router.push(`../../journal/details/${entryObj.journalId}`));
     } else {
       const payload = { ...entryFormInput };
       createEntry(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
+        const patchPayload = { firebaseKey: name, journalId: getJournalId, uid: user.uid };
         updateEntry(patchPayload).then(() => {
-          router.push('/');
+          router.push(`../../journal/details/${getJournalId}`);
         });
       });
     }
@@ -84,6 +88,7 @@ JournalEntryForm.propTypes = {
     category: PropTypes.string,
     firebaseKey: PropTypes.string,
     journalId: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 

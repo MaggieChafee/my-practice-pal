@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { deleteMusicAndNotes } from '../../api/mergedData';
 
 function MusicCard({ musicObj, onUpdate }) {
@@ -16,6 +16,7 @@ function MusicCard({ musicObj, onUpdate }) {
   };
 
   const star = <FontAwesomeIcon icon={faStar} size="2xl" style={{ color: '#f9dd76' }} />;
+  const ellipsis = <FontAwesomeIcon icon={faEllipsis} size="sm" style={{ color: '#ed6335' }} />;
   const condition = musicObj.musicCompleted;
   const result = condition ? 'completed' : 'not-completed';
   const headResult = condition ? 'card-head-closed' : 'card-head-open';
@@ -35,15 +36,21 @@ function MusicCard({ musicObj, onUpdate }) {
         <hr />
         <Card.Text>{musicObj.category}</Card.Text>
         <Card.Text>Start Date: {musicObj.startDate}</Card.Text>
+        <Card.Text>End Date: {musicObj.endDate}</Card.Text>
         <div style={{ height: '25px' }} />
         <div className="button-container">
           <Link href={`/music/${musicObj.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">View</Button>
           </Link>
-          <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisMusic}>Delete</Button>
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Link href={`/music/edit/${musicObj.firebaseKey}`} passHref>
+                <Dropdown.Item>Edit</Dropdown.Item>
+              </Link>
+              <Dropdown.Item onClick={deleteThisMusic}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>
@@ -59,6 +66,7 @@ MusicCard.propTypes = {
     startDate: PropTypes.string,
     recording: PropTypes.string,
     firebaseKey: PropTypes.string,
+    endDate: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

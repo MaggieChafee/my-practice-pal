@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Button, Form, FormLabel, FormText,
+  Button, Form,
 } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { createGoal, updateGoal } from '../../api/goalData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   frequency: '',
@@ -16,7 +17,10 @@ const initialState = {
 function GoalForm({ goalObj }) {
   const router = useRouter();
   const { firebaseKey } = router.query;
-  const [formInput, setFormInput] = useState({ ...initialState, journalId: firebaseKey });
+  const [formInput, setFormInput] = useState({ ...initialState });
+
+  const { user } = useAuth();
+  const getJournalId = firebaseKey;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,13 +36,13 @@ function GoalForm({ goalObj }) {
     e.preventDefault();
 
     if (goalObj.firebaseKey) {
-      updateGoal(formInput).then(() => router.push('/'));
+      updateGoal(formInput).then(() => router.push(`../../journal/details/${goalObj.journalId}`));
     } else {
       const payload = { ...formInput };
       createGoal(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
+        const patchPayload = { firebaseKey: name, journalId: getJournalId, uid: user.uid };
         updateGoal(patchPayload).then(() => {
-          router.push('/');
+          router.push(`../../journal/details/${getJournalId}`);
         });
       });
     }
@@ -52,28 +56,28 @@ function GoalForm({ goalObj }) {
     <>
       <div>
         <Form onSubmit={handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <FormLabel>How often do you want to practice?</FormLabel>
+          <Form.Group>
+            <Form.Label>How often do you want to practice?</Form.Label>
             <Form.Control as="textarea" rows={7} name="frequency" value={formInput.frequency} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
-          <Form.Group controlId="formBasicEmail">
-            <FormLabel>What do you want to practice?</FormLabel>
-            <FormText>ex. a certain section of the piece, overall tone, phrasing, etc.</FormText>
+          <Form.Group>
+            <Form.Label>What do you want to practice?</Form.Label>
+            <Form.Text style={{ fontStyle: 'italic', color: 'white', opacity: '70%' }}> ex. a certain section of the piece, overall tone, phrasing, etc.</Form.Text>
             <Form.Control as="textarea" rows={7} name="what" value={formInput.what} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
-          <Form.Group controlId="formBasicEmail">
-            <FormLabel>How will you practice this?</FormLabel>
-            <FormText>Be specific so you can reach your goal!</FormText>
+          <Form.Group>
+            <Form.Label>How will you practice this?</Form.Label>
+            <Form.Text style={{ fontStyle: 'italic', color: 'white', opacity: '70%' }}> Be specific so you can reach your goal!</Form.Text>
             <Form.Control as="textarea" rows={7} name="how" value={formInput.how} onChange={handleChange} />
           </Form.Group>
           <div style={{ height: '15px' }} />
           <Form.Group className="mb-3">
             <Form.Check
               type="checkbox"
-              label="I've completed the piece!"
-              name="musicCompleted"
+              label="I've achieved this goal!"
+              name="goalCompleted"
               checked={formInput.goalCompleted}
               onChange={(e) => {
                 setFormInput((prevState) => ({
@@ -101,6 +105,7 @@ GoalForm.propTypes = {
     goalCompleted: PropTypes.bool,
     firebaseKey: PropTypes.string,
     journalId: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 

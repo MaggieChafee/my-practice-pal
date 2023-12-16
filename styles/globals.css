@@ -41,18 +41,32 @@ a {
   border-width: 2px;
 }
 
+.btn-orange-outline {
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #ed6335;
+  border-width: 2px;
+}
+
+.dropdown-toggle::after {
+  display: none !important; 
+}
+
 .btn-green {
   border-radius: 25px;
-  background-color: #026c80;
+  background-color: transparent;
   border-style: solid;
-  border-color: #026c80;
+  border-color: white;
   border-width: 2px;
 }
 
 .button-container {
   display: flex;
   direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 10px;
 }
 /* page styling */
 .page-container {
@@ -64,6 +78,15 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 20px;
+  row-gap: 20px;
+  padding: 25px;
+}
+
+.cards-container-music-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   gap: 20px;
   row-gap: 20px;
   padding: 25px;
@@ -122,3 +145,5 @@ a {
   border-width: 2px;
   box-shadow: 10px 10px #14213d;
 }
+
+/* form styling */

@@ -84,7 +84,7 @@ function MusicForm({ musicObj }) {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>End Date</Form.Label>
-            <Form.Control type="date" name="startDate" value={musicFormInput.endDate} onChange={handleChange} />
+            <Form.Control type="date" name="endDate" value={musicFormInput.endDate} onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Check
@@ -119,6 +119,7 @@ MusicForm.propTypes = {
     musicCompleted: PropTypes.bool,
     recording: PropTypes.string,
     firebaseKey: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 

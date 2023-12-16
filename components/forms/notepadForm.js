@@ -1,12 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { createNote, updateNote } from '../../api/notepadData';
+import { getSingleMusic } from '../../api/musicData';
+import { useAuth } from '../../utils/context/authContext';
 
 const initialState = {
   startDate: '',
   endDate: '',
+  piece: '',
   noteClosed: false,
 };
 
@@ -14,6 +18,12 @@ function NotepadForm({ noteObj }) {
   const router = useRouter();
   const { firebaseKey } = router.query;
   const [noteFormInput, setNoteFormInput] = useState({ ...initialState, musicId: firebaseKey });
+  const [musicName, setMusicName] = useState({});
+  const { user } = useAuth();
+
+  const getMusicName = () => {
+    getSingleMusic(firebaseKey).then(setMusicName);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +41,7 @@ function NotepadForm({ noteObj }) {
     if (noteObj.firebaseKey) {
       updateNote(noteFormInput).then(() => router.push(`/music/${noteObj.musicId}`));
     } else {
-      const payload = { ...noteFormInput };
+      const payload = { ...noteFormInput, piece: musicName?.name, uid: user.uid };
       createNote(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateNote(patchPayload).then(() => {
@@ -43,6 +53,7 @@ function NotepadForm({ noteObj }) {
 
   useEffect(() => {
     if (noteObj.firebaseKey) setNoteFormInput(noteObj);
+    getMusicName();
   }, [noteObj]);
 
   return (
@@ -88,8 +99,10 @@ NotepadForm.propTypes = {
     startDate: PropTypes.string,
     endDate: PropTypes.string,
     noteClosed: PropTypes.bool,
+    piece: PropTypes.string,
     firebaseKey: PropTypes.string,
     musicId: PropTypes.string,
+    uid: PropTypes.string,
   }),
 };
 

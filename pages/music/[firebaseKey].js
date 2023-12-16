@@ -11,7 +11,7 @@ import { viewMusicDetails } from '../../api/mergedData';
 import NotepadCard from '../../components/cards/notepadCard';
 import { getNotesByMusicId } from '../../api/notepadData';
 
-function ViewMusicDetails() {
+function ViewMusicPageDetails() {
   const [musicDetails, setMusicDetails] = useState({});
   const [note, setNotes] = useState([]);
   const [cNote, setCNotes] = useState([]);
@@ -74,22 +74,24 @@ function ViewMusicDetails() {
           <Button className="btn-orange" variant="dark">Add a Journal</Button>
         </Link>
       </div>
-      <div style={{ height: '50px' }} />
-      <h4>Current Journal</h4>
-      <div className="cards-container-details">
-        {note?.map((filteredNotepad) => (
-          <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
-        ))}
-      </div>
-      <div style={{ height: '50px' }} />
-      <h4>Past Journals</h4>
-      <div className="cards-container-details">
-        {cNote?.map((filteredNotepad) => (
-          <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
-        ))}
+      <div style={{ height: '30px' }} />
+      <div className="cards-container-music-details">
+        <div style={{ width: '30rem' }}>
+          <div className="cards-container-details">
+            {note?.map((filteredNotepad) => (
+              <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotes} />
+            ))}
+          </div>
+        </div>
+        <div style={{ width: '10px' }} />
+        <div className="cards-container-details">
+          {cNote?.map((filteredNotepad) => (
+            <NotepadCard key={filteredNotepad.firebaseKey} noteObj={filteredNotepad} onUpdate={getFilteredNotesOpen} />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
-export default ViewMusicDetails;
+export default ViewMusicPageDetails;

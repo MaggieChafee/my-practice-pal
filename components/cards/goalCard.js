@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Button, Card, CardText } from 'react-bootstrap';
+import { Card, CardText, Dropdown } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 import { deleteGoal } from '../../api/goalData';
 
 function GoalCard({ goalObj, onUpdate }) {
@@ -17,6 +17,7 @@ function GoalCard({ goalObj, onUpdate }) {
 
   const star = <FontAwesomeIcon icon={faStar} size="lg" style={{ color: '#f9dd76' }} />;
   const condition = goalObj.goalCompleted;
+  const ellipsis = <FontAwesomeIcon icon={faEllipsis} size="sm" style={{ color: '#ed6335' }} />;
   const result = condition ? 'completed' : 'not-completed';
   const headResult = condition ? 'card-head-closed' : 'card-head-open';
 
@@ -48,10 +49,15 @@ function GoalCard({ goalObj, onUpdate }) {
         </div>
         <div style={{ height: '25px' }} />
         <div className="button-container">
-          <Link href={`/goal/edit/${goalObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisGoal}>Delete</Button>
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Link href={`/goal/edit/${goalObj.firebaseKey}`} passHref>
+                <Dropdown.Item>Edit</Dropdown.Item>
+              </Link>
+              <Dropdown.Item onClick={deleteThisGoal}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>

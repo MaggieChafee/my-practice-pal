@@ -1,7 +1,9 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import PropTypes from 'prop-types';
+import { Dropdown } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { deleteEntry } from '../../api/journalEntryData';
 
@@ -12,6 +14,8 @@ export default function JournalEntryCard({ entryObj, onUpdate }) {
     }
   };
 
+  const ellipsis = <FontAwesomeIcon icon={faEllipsis} size="sm" style={{ color: '#ed6335' }} />;
+
   return (
     <Card className="not-completed">
       <Card.Header as="h5" style={{ fontWeight: 'bolder' }}>  Date: {entryObj.date}</Card.Header>
@@ -21,10 +25,15 @@ export default function JournalEntryCard({ entryObj, onUpdate }) {
           {entryObj.jotSheet}
         </Card.Text>
         <div>
-          <Link href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
-          <Button className="btn-orange" variant="dark" onClick={deleteThisJournalEntry}>Delete</Button>
+          <Dropdown>
+            <Dropdown.Toggle className="btn-orange-outline" variant="outline-dark">{ellipsis}</Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Link href={`/journalEntry/edit/${entryObj.firebaseKey}`} passHref>
+                <Dropdown.Item>Edit</Dropdown.Item>
+              </Link>
+              <Dropdown.Item onClick={deleteThisJournalEntry}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </div>
       </Card.Body>
     </Card>

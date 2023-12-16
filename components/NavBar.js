@@ -12,7 +12,7 @@ export default function NavBar() {
       <Container>
         <div>
           <Link passHref href="/">
-            <Navbar.Brand>my practice pal</Navbar.Brand>
+            <Navbar.Brand>My Practice Pal</Navbar.Brand>
           </Link>
         </div>
         <div>

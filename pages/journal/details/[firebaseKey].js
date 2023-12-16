@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { viewNoteDetails } from '../../../api/mergedData';
 import JournalEntryCard from '../../../components/cards/journalEntryCard';
 import { getEntriesByJournalId } from '../../../api/journalEntryData';
 import { getGoalsByJournalId } from '../../../api/goalData';
 import GoalCard from '../../../components/cards/goalCard';
+import { getSingleNote } from '../../../api/notepadData';
 
 function ViewNotePadDetails() {
   const [noteDetails, setNoteDetails] = useState({});
@@ -19,7 +19,7 @@ function ViewNotePadDetails() {
   const router = useRouter();
   const { firebaseKey } = router.query;
   const getNoteDeats = () => {
-    viewNoteDetails(firebaseKey).then(setNoteDetails);
+    getSingleNote(firebaseKey).then(setNoteDetails);
   };
 
   const getJournalEntries = () => {
@@ -41,19 +41,27 @@ function ViewNotePadDetails() {
   return (
     <div className="page-container">
       <div>
+        <Link href={`../../music/${noteDetails.musicId}`} passHref>
+          <Button className="btn-green" variant="dark">Back to Music Details</Button>
+        </Link>
+        <div style={{ height: '25px' }} />
         <div className="details-head">
-          <h1>
-            {noteDetails?.noteClosed ? checkmark : ''}
-          </h1>
-          <h3>
-            {noteDetails?.startDate} to {noteDetails.endDate}
-          </h3>
-          <Link href={`/journal/edit/${noteDetails.firebaseKey}`} passHref>
-            <Button className="btn-orange" variant="dark">Edit</Button>
-          </Link>
+          <div>
+            <h1>
+              {noteDetails?.noteClosed ? checkmark : ''} {noteDetails.piece}
+            </h1>
+            <h3>
+              {noteDetails?.startDate} to {noteDetails.endDate}
+            </h3>
+          </div>
+          <div>
+            <Link href={`/journal/edit/${noteDetails.firebaseKey}`} passHref>
+              <Button className="btn-orange" variant="dark">Edit</Button>
+            </Link>
+          </div>
         </div>
         <hr />
-        <div>
+        <div className="button-container">
           <Link href={`/journalEntry/new/${noteDetails.firebaseKey}`} passHref>
             <Button className="btn-orange" variant="dark">Add a Note</Button>
           </Link>
