@@ -61,6 +61,7 @@ function JournalEntryForm({ entryObj }) {
           <Form.Group controlId="formBasicCheckbox">
             <FormLabel>Category</FormLabel>
             <Form.Select name="category" value={entryFormInput.category} aria-label="Default select example" onChange={handleChange}>
+              <option>...</option>
               <option>Lesson</option>
               <option>Practice</option>
               <option>Miscellaneous</option>

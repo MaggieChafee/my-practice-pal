@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button,
+  Navbar, Container, Nav, Button, NavbarBrand,
 } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 
@@ -12,7 +12,7 @@ export default function NavBar() {
       <Container>
         <div>
           <Link passHref href="/">
-            <Navbar.Brand>My Practice Pal</Navbar.Brand>
+            <NavbarBrand>My Practice Pal</NavbarBrand>
           </Link>
         </div>
         <div>
