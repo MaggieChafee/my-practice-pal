@@ -1,61 +1,42 @@
-# React/Next.js Template
+# My Practice Pal
 
-[See Live Demo of this Template](https://drt-next-js-template.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/23f4c4eb-07c9-41f7-b01d-cc0fd225a60b/deploy-status)](https://app.netlify.com/sites/mypracticepal/deploys)
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Deploying on Netlify](#deploying-on-netlify)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+My Practice Pal is an all in one practice companion for music students, designed for ages 10+. This app allows musicians to record their notes, goals, and achievements in an easy to use interface. 
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
-
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
-
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
-
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+[Demo](https://mypracticepal.netlify.app)
 
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## About the User
+This app was designed to be used by musicians of all levels desiring organization in their musical journey. Whether you are pursuing music at a collegiate level, joining your first ever middle school orchestra, or finally deciding to pursue the instrument you've always wanted to in your retirement, this app is for you!
 
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
+## Features
+- User specific data through Google authentication
+- A dashboard page where the user is able to see all of their current pieces they are working on
+- Ability to add a new piece of music to their dashboard
+- Create weekly journals where the user is able to track different notepads and set weekly goals. 
+- When a user achieves a goal, they can mark the goal as accomplished and earn a gold star
+- When a user completes a piece of music, they can mark is as accomplished and get a gold star for it
+- Once a piece is completed, it appears under the “My Achievements” page
 
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
+## Demo
 
-### Deploying on Netlify
-Netlify will automatically detect your project and prepopulate the settings, but should something go wrong and it does not, here are the commands:
+Watch my demo [here](https://www.loom.com/share/7ca46c9a2f024bd898c679639e996701?sid=82b505a7-144f-4628-a009-140f317eeda3)!
+## Screenshots
 
-- Build Command: `npm run build`
-- Publish directory: `.next`
+### My Dashboard (Homepage):
+<img width="1148" src="/public/assets/mpp - dashboard.png">
 
-#### Additional Steps to Take on Netlify
-- Add Environmental Variables
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
+### Music Details Page:
+<img width="1148" src="/public/assets/mpp - music details.png">
 
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
+### Journal Details Page with Goals and Notes:
+<img width="1148" src="/public/assets/mpp - journal details.png">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Create Form to Add a Piece of Music:
+<img width="1148" src="/public/assets/mpp - create form.png">
+
+## Relevant Links
+[ERD](https://dbdiagram.io/d/My-Practice-Pal-6549a3cc7d8bbd64659fce07)
+[Flowchart](https://www.canva.com/design/DAFzcTE4tEk/-5siHupFU-3xGespH16cgg/edit?utm_content=DAFzcTE4tEk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Deployed Site](https://mypracticepal.netlify.app)
